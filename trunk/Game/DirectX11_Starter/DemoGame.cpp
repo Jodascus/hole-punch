@@ -113,7 +113,7 @@ bool DemoGame::Init()
     g_Sprites.reset( new SpriteBatch(deviceContext) );
 
 	// Load the Texture
-	CreateDDSTextureFromFile(device, L"Assets/enemy.dds", nullptr, &g_pTextureRV1);
+	HR(CreateDDSTextureFromFile(device, L"Assets/enemy.dds", nullptr, &g_pTextureRV1));
 
 	return true;
 }
