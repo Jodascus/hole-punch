@@ -36,7 +36,7 @@ MainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 DXGame::DXGame(HINSTANCE hInstance)
 :	hAppInst(hInstance),
-	windowCaption(L"DirectX Game"),
+	windowCaption(L"HOLE PUNCH"),
 	driverType(D3D_DRIVER_TYPE_HARDWARE),
 	windowWidth(800),
 	windowHeight(600),
