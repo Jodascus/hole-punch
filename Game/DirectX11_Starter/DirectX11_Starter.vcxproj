@@ -44,7 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Josh\Desktop\hole-punch\Game\DirectXTK\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)DirectXTK\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -68,11 +68,54 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DemoGame.cpp" />
+    <ClCompile Include="DirectXTK\Src\AlphaTestEffect.cpp" />
+    <ClCompile Include="DirectXTK\Src\BasicEffect.cpp" />
+    <ClCompile Include="DirectXTK\Src\BinaryReader.cpp" />
+    <ClCompile Include="DirectXTK\Src\CommonStates.cpp" />
+    <ClCompile Include="DirectXTK\Src\DDSTextureLoader.cpp" />
+    <ClCompile Include="DirectXTK\Src\DualTextureEffect.cpp" />
+    <ClCompile Include="DirectXTK\Src\EffectCommon.cpp" />
+    <ClCompile Include="DirectXTK\Src\EffectFactory.cpp" />
+    <ClCompile Include="DirectXTK\Src\EnvironmentMapEffect.cpp" />
+    <ClCompile Include="DirectXTK\Src\GeometricPrimitive.cpp" />
+    <ClCompile Include="DirectXTK\Src\Model.cpp" />
+    <ClCompile Include="DirectXTK\Src\ModelLoadCMO.cpp" />
+    <ClCompile Include="DirectXTK\Src\ModelLoadSDKMESH.cpp" />
+    <ClCompile Include="DirectXTK\Src\pch.cpp" />
+    <ClCompile Include="DirectXTK\Src\PrimitiveBatch.cpp" />
+    <ClCompile Include="DirectXTK\Src\ScreenGrab.cpp" />
+    <ClCompile Include="DirectXTK\Src\SkinnedEffect.cpp" />
+    <ClCompile Include="DirectXTK\Src\SpriteBatch.cpp" />
+    <ClCompile Include="DirectXTK\Src\SpriteFont.cpp" />
+    <ClCompile Include="DirectXTK\Src\VertexTypes.cpp" />
+    <ClCompile Include="DirectXTK\Src\WICTextureLoader.cpp" />
     <ClCompile Include="DXGame.cpp" />
     <ClCompile Include="GameTimer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DemoGame.h" />
+    <ClInclude Include="DirectXTK\Inc\CommonStates.h" />
+    <ClInclude Include="DirectXTK\Inc\DDSTextureLoader.h" />
+    <ClInclude Include="DirectXTK\Inc\Effects.h" />
+    <ClInclude Include="DirectXTK\Inc\GeometricPrimitive.h" />
+    <ClInclude Include="DirectXTK\Inc\Model.h" />
+    <ClInclude Include="DirectXTK\Inc\PrimitiveBatch.h" />
+    <ClInclude Include="DirectXTK\Inc\ScreenGrab.h" />
+    <ClInclude Include="DirectXTK\Inc\SimpleMath.h" />
+    <ClInclude Include="DirectXTK\Inc\SpriteBatch.h" />
+    <ClInclude Include="DirectXTK\Inc\SpriteFont.h" />
+    <ClInclude Include="DirectXTK\Inc\VertexTypes.h" />
+    <ClInclude Include="DirectXTK\Inc\WICTextureLoader.h" />
+    <ClInclude Include="DirectXTK\Src\AlignedNew.h" />
+    <ClInclude Include="DirectXTK\Src\Bezier.h" />
+    <ClInclude Include="DirectXTK\Src\BinaryReader.h" />
+    <ClInclude Include="DirectXTK\Src\ConstantBuffer.h" />
+    <ClInclude Include="DirectXTK\Src\dds.h" />
+    <ClInclude Include="DirectXTK\Src\DemandCreate.h" />
+    <ClInclude Include="DirectXTK\Src\EffectCommon.h" />
+    <ClInclude Include="DirectXTK\Src\pch.h" />
+    <ClInclude Include="DirectXTK\Src\PlatformHelpers.h" />
+    <ClInclude Include="DirectXTK\Src\SharedResourcePool.h" />
     <ClInclude Include="DXGame.h" />
     <ClInclude Include="GameTimer.h" />
   </ItemGroup>
@@ -86,7 +129,77 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DirectXTK\DirectXTK_Desktop_2012.vcxproj">
+    <None Include="DirectXTK\Inc\SimpleMath.inl" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\AlphaTestEffect_PSAlphaTestEqNe.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\AlphaTestEffect_PSAlphaTestEqNeNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\AlphaTestEffect_PSAlphaTestLtGt.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\AlphaTestEffect_PSAlphaTestLtGtNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\AlphaTestEffect_VSAlphaTest.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\AlphaTestEffect_VSAlphaTestNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\AlphaTestEffect_VSAlphaTestVc.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\AlphaTestEffect_VSAlphaTestVcNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_PSBasic.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_PSBasicNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_PSBasicPixelLighting.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_PSBasicPixelLightingTx.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_PSBasicTx.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_PSBasicTxNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_PSBasicVertexLighting.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_PSBasicVertexLightingNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_PSBasicVertexLightingTx.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_PSBasicVertexLightingTxNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasic.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicOneLight.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicOneLightTx.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicOneLightTxVc.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicOneLightVc.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicPixelLighting.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicPixelLightingTx.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicPixelLightingTxVc.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicPixelLightingVc.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicTx.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicTxNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicTxVc.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicTxVcNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicVc.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicVcNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicVertexLighting.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicVertexLightingTx.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicVertexLightingTxVc.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\BasicEffect_VSBasicVertexLightingVc.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\DualTextureEffect_PSDualTexture.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\DualTextureEffect_PSDualTextureNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\DualTextureEffect_VSDualTexture.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\DualTextureEffect_VSDualTextureNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\DualTextureEffect_VSDualTextureVc.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\DualTextureEffect_VSDualTextureVcNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\EnvironmentMapEffect_PSEnvMap.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\EnvironmentMapEffect_PSEnvMapNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\EnvironmentMapEffect_PSEnvMapSpecular.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\EnvironmentMapEffect_PSEnvMapSpecularNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\EnvironmentMapEffect_VSEnvMap.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\EnvironmentMapEffect_VSEnvMapFresnel.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\EnvironmentMapEffect_VSEnvMapOneLight.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\EnvironmentMapEffect_VSEnvMapOneLightFresnel.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_PSSkinnedPixelLighting.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_PSSkinnedVertexLighting.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_PSSkinnedVertexLightingNoFog.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_VSSkinnedOneLightFourBones.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_VSSkinnedOneLightOneBone.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_VSSkinnedOneLightTwoBones.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_VSSkinnedPixelLightingFourBones.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_VSSkinnedPixelLightingOneBone.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_VSSkinnedPixelLightingTwoBones.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_VSSkinnedVertexLightingFourBones.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_VSSkinnedVertexLightingOneBone.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SkinnedEffect_VSSkinnedVertexLightingTwoBones.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SpriteEffect_SpritePixelShader.inc" />
+    <None Include="DirectXTK\Src\Shaders\Compiled\SpriteEffect_SpriteVertexShader.inc" />
+    <None Include="DirectXTK\Src\TeapotData.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="DirectXTK\DirectXTK_Desktop_2012.vcxproj">
       <Project>{e0b52ae7-e160-4d32-bf3f-910b785e5a8e}</Project>
     </ProjectReference>
   </ItemGroup>
