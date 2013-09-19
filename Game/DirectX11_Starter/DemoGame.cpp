@@ -52,7 +52,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
 DemoGame::DemoGame(HINSTANCE hInstance) : DXGame(hInstance)
 {
 	// Set up our custom caption and window size
-	windowCaption = L"Demo DX11 Game";
+	windowCaption = L"HOLE PUNCH";
 	windowWidth = 800;
 	windowHeight = 600;
 }
@@ -106,7 +106,7 @@ bool DemoGame::Init()
 	return true;
 }
 
-// Creates the vertex and index buffers for a single triangle
+// Creates the vertex and index buffers for a cube
 void DemoGame::CreateGeometryBuffers()
 {
 	XMFLOAT4 red	= XMFLOAT4(1.0f, 0.0f, 0.0f, 1.0f);
@@ -126,16 +126,13 @@ void DemoGame::CreateGeometryBuffers()
 	// Set up the vertices
 	Vertex* vertices = new Vertex[m_vertexCount];
 	
-
 	for(int i=0; i < m_vertexCount;i++)
-		{
-			vertices[i].Position = XMFLOAT3(m_model[i].x,m_model[i].y,m_model[i].z);
-			if( i%3 == 0)vertices[i].Color = red;
-			if( i%3 == 1)vertices[i].Color = green;
-			if( i%3 == 2)vertices[i].Color = blue;
-		}
-
-	
+	{
+		vertices[i].Position = XMFLOAT3(m_model[i].x,m_model[i].y,m_model[i].z);
+		if( i%3 == 0)vertices[i].Color = red;
+		if( i%3 == 1)vertices[i].Color = green;
+		if( i%3 == 2)vertices[i].Color = blue;
+	}
 
 	// Create the vertex buffer
 	D3D11_BUFFER_DESC vbd;
@@ -152,12 +149,11 @@ void DemoGame::CreateGeometryBuffers()
 	// Set up the indices
 	//UINT indices[] = { 0, 2, 1 };
 	UINT* indices = new UINT[m_indexCount];
-	
 
 	for(int i=0; i < m_indexCount;i++)
-		{
-			indices[i] = i;
-		}
+	{
+		indices[i] = i;
+	}
 
 	// Create the index buffer
 	D3D11_BUFFER_DESC ibd;
@@ -170,7 +166,6 @@ void DemoGame::CreateGeometryBuffers()
     D3D11_SUBRESOURCE_DATA initialIndexData;
     initialIndexData.pSysMem	= indices;
     HR(device->CreateBuffer(&ibd, &initialIndexData, &indexBuffer));
-	
 }
 
 // Loads shaders from compiled shader object (.cso) files, and uses the
@@ -395,11 +390,6 @@ bool DemoGame::LoadModel(char* filename)
 	obj.close();
 
 	return true;
-
-
-
-
-	
 }
 
 void DemoGame::ReleaseModel()
