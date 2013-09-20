@@ -28,8 +28,8 @@
 #include "SpriteFont.h"
 #include "DDSTextureLoader.h"
 
-std::unique_ptr<SpriteBatch>                            g_Sprites;
-ID3D11ShaderResourceView*           g_pTextureRV1 = nullptr;
+//std::unique_ptr<SpriteBatch>                            g_Sprites;
+//ID3D11ShaderResourceView*           g_pTextureRV1 = nullptr;
 
 #pragma region Win32 Entry Point (WinMain)
 
@@ -110,10 +110,10 @@ bool DemoGame::Init()
 	XMStoreFloat4x4(&worldMatrix, XMMatrixTranspose(W));
 
 	// Create DirectXTK objects
-    g_Sprites.reset( new SpriteBatch(deviceContext) );
+    //g_Sprites.reset( new SpriteBatch(deviceContext) );
 
 	// Load the Texture
-	HR(CreateDDSTextureFromFile(device, L"Assets/enemy.dds", nullptr, &g_pTextureRV1));
+	//HR(CreateDDSTextureFromFile(device, L"Assets/enemy.dds", nullptr, &g_pTextureRV1));
 
 	return true;
 }
@@ -128,8 +128,8 @@ void DemoGame::CreateGeometryBuffers()
 	//------------------------------------------------------whew
 	//m_vertexCount = 3;
 	//m_indexCount = 3;
-	bool result;
-	result = LoadModel("cube1.txt");
+	// Load text of model points
+	bool result = LoadModel("cube1.txt");
 	if(!result)
 	{
 		//return;
@@ -270,6 +270,7 @@ void DemoGame::OnResize()
 // push it to the buffer on the device
 void DemoGame::UpdateScene(float dt)
 {
+	
 	// Update local constant buffer data
 	vsConstantBufferData.world		= worldMatrix;
 	vsConstantBufferData.view		= viewMatrix;
@@ -323,9 +324,9 @@ void DemoGame::DrawScene()
 		0);
 	
 	// Draw sprite
-    g_Sprites->Begin( SpriteSortMode_Deferred );
-    g_Sprites->Draw( g_pTextureRV1, XMFLOAT2(10, 75 ), nullptr, Colors::White );
-    g_Sprites->End();
+    //g_Sprites->Begin( SpriteSortMode_Deferred );
+    //g_Sprites->Draw( g_pTextureRV1, XMFLOAT2(10, 75 ), nullptr, Colors::White );
+    //g_Sprites->End();
 
 	// Present the buffer
 	HR(swapChain->Present(0, 0));
@@ -354,6 +355,7 @@ void DemoGame::OnMouseMove(WPARAM btnState, int x, int y)
 {
 	prevMousePos.x = x;
 	prevMousePos.y = y;
+	// Some camera rotation here eventually
 }
 #pragma endregion
 
@@ -377,12 +379,12 @@ bool DemoGame::LoadModel(char* filename)
 		obj.get(input);
 	}
 
-	// read in the vertex count
+	// Read in the vertex count
 	obj >> m_vertexCount;
 
 	m_indexCount = m_vertexCount;
 
-	// create the model using the vertex count that was read in
+	// Create the model using the vertex count that was read in
 	m_model = new ModelType[m_vertexCount];
 	if(!m_model) return false;
 
