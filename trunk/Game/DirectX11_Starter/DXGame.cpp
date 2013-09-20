@@ -340,6 +340,10 @@ int DXGame::Run()
 			{
 				// Standard game loop type stuff
 				CalculateFrameStats();
+				
+				//CameraLookAt.x = (CameraPos.x + 100) * Sin(CameraRot * pi / 180)
+				
+				
 				UpdateScene(timer.DeltaTime());
 				DrawScene();
 			}
@@ -497,6 +501,7 @@ LRESULT DXGame::MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	case WM_MBUTTONDOWN:
 	case WM_RBUTTONDOWN:
 		OnMouseDown(wParam, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+		//XMMatrixRotationX(90);
 		return 0;
 	case WM_LBUTTONUP:
 	case WM_MBUTTONUP:
@@ -512,7 +517,3 @@ LRESULT DXGame::MsgProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 }
 
 #pragma endregion
-
-
-
-
