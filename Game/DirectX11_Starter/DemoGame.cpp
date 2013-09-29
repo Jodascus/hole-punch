@@ -28,8 +28,8 @@
 #include "SpriteFont.h"
 #include "DDSTextureLoader.h"
 
-//std::unique_ptr<SpriteBatch>                            g_Sprites;
-//ID3D11ShaderResourceView*           g_pTextureRV1 = nullptr;
+using namespace DirectX;
+std::unique_ptr <SpriteBatch> sprite (new SpriteBatch(deviceContext));
 
 #pragma region Win32 Entry Point (WinMain)
 
@@ -54,6 +54,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
 #pragma endregion
 
 #pragma region Constructor / Destructor
+
+
 
 DemoGame::DemoGame(HINSTANCE hInstance) : DXGame(hInstance)
 {
@@ -108,12 +110,13 @@ bool DemoGame::Init()
 	// In an actual game, update this when the object moves (so every frame)
 	XMMATRIX W = XMMatrixIdentity();
 	XMStoreFloat4x4(&worldMatrix, XMMatrixTranspose(W));
-
+	
 	// Create DirectXTK objects
-    //g_Sprites.reset( new SpriteBatch(deviceContext) );
+	
+	sprite.reset( new SpriteBatch(deviceContext) );
 
 	// Load the Texture
-	//HR(CreateDDSTextureFromFile(device, L"Assets/enemy.dds", nullptr, &g_pTextureRV1));
+	//HR(CreateDDSTextureFromFile(device, L"Assets/enemy.dds", nullptr, ));
 
 	return true;
 }
@@ -324,9 +327,10 @@ void DemoGame::DrawScene()
 		0);
 	
 	// Draw sprite
-    //g_Sprites->Begin( SpriteSortMode_Deferred );
+    sprite->Begin( SpriteSortMode_Deferred );
     //g_Sprites->Draw( g_pTextureRV1, XMFLOAT2(10, 75 ), nullptr, Colors::White );
-    //g_Sprites->End();
+	//sprite->Draw(g_pTextureRV1, XMFLOAT2(10, 10));
+    sprite->End();
 
 	// Present the buffer
 	HR(swapChain->Present(0, 0));
