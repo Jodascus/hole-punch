@@ -29,7 +29,7 @@
 #include "DDSTextureLoader.h"
 
 using namespace DirectX;
-std::unique_ptr <SpriteBatch> sprite (new SpriteBatch(deviceContext));
+//std::unique_ptr <SpriteBatch> sprite (new SpriteBatch(deviceContext));
 
 #pragma region Win32 Entry Point (WinMain)
 
@@ -113,7 +113,7 @@ bool DemoGame::Init()
 	
 	// Create DirectXTK objects
 	
-	sprite.reset( new SpriteBatch(deviceContext) );
+	//sprite.reset( new SpriteBatch(deviceContext) );
 
 	// Load the Texture
 	//HR(CreateDDSTextureFromFile(device, L"Assets/enemy.dds", nullptr, ));
@@ -327,10 +327,10 @@ void DemoGame::DrawScene()
 		0);
 	
 	// Draw sprite
-    sprite->Begin( SpriteSortMode_Deferred );
+//    sprite->Begin( SpriteSortMode_Deferred );
     //g_Sprites->Draw( g_pTextureRV1, XMFLOAT2(10, 75 ), nullptr, Colors::White );
 	//sprite->Draw(g_pTextureRV1, XMFLOAT2(10, 10));
-    sprite->End();
+   // sprite->End();
 
 	// Present the buffer
 	HR(swapChain->Present(0, 0));
