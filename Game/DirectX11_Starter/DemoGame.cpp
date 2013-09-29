@@ -132,7 +132,7 @@ void DemoGame::CreateGeometryBuffers()
 	//m_vertexCount = 3;
 	//m_indexCount = 3;
 	// Load text of model points
-	bool result = LoadModel("cube1.txt");
+	bool result = LoadModel("enemy.txt");
 	if(!result)
 	{
 		//return;

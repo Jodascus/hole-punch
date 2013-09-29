@@ -1,6 +1,44 @@
+<<<<<<< .mine
+﻿Build started 9/29/2013 5:11:36 PM.
+     1>Project "C:\Users\Hillary\Desktop\School\hole-punch\Game\DirectX11_Starter\DirectX11_Starter.vcxproj" on node 2 (Build target(s)).
+=======
 ﻿Build started 9/29/2013 4:39:28 PM.
      1>Project "\\banner.main.ad.rit.edu\students\jad2828\IGMProfile\Desktop\hole-punch\Game\DirectX11_Starter\DirectX11_Starter.vcxproj" on node 2 (Build target(s)).
+>>>>>>> .r19
      1>ClCompile:
+<<<<<<< .mine
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Hillary\Desktop\School\hole-punch\Game\DirectX11_Starter\DirectXTK\Inc" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt DXGame.cpp
+         DXGame.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Hillary\Desktop\School\hole-punch\Game\Debug\DirectX11_Starter.exe" /INCREMENTAL /NOLOGO d3d11.lib d3dcompiler.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Hillary\Desktop\School\hole-punch\Game\Debug\DirectX11_Starter.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Hillary\Desktop\School\hole-punch\Game\Debug\DirectX11_Starter.lib" /MACHINE:X86 Debug\DemoGame.obj
+         Debug\AlphaTestEffect.obj
+         Debug\BasicEffect.obj
+         Debug\BinaryReader.obj
+         Debug\CommonStates.obj
+         Debug\DDSTextureLoader.obj
+         Debug\DualTextureEffect.obj
+         Debug\EffectCommon.obj
+         Debug\EffectFactory.obj
+         Debug\EnvironmentMapEffect.obj
+         Debug\GeometricPrimitive.obj
+         Debug\Model.obj
+         Debug\ModelLoadCMO.obj
+         Debug\ModelLoadSDKMESH.obj
+         Debug\pch.obj
+         Debug\PrimitiveBatch.obj
+         Debug\ScreenGrab.obj
+         Debug\SkinnedEffect.obj
+         Debug\SpriteBatch.obj
+         Debug\SpriteFont.obj
+         Debug\VertexTypes.obj
+         Debug\WICTextureLoader.obj
+         Debug\DXGame.obj
+         Debug\GameTimer.obj
+         Debug\Sprite.obj
+         "C:\Users\Hillary\Desktop\School\hole-punch\Game\DirectX11_Starter\DirectXTK\Bin\Desktop_2012\Win32\Debug\DirectXTK.lib"
+         DirectX11_Starter.vcxproj -> C:\Users\Hillary\Desktop\School\hole-punch\Game\Debug\DirectX11_Starter.exe
+     1>Done Building Project "C:\Users\Hillary\Desktop\School\hole-punch\Game\DirectX11_Starter\DirectX11_Starter.vcxproj" (Build target(s)).
+=======
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"\\banner.main.ad.rit.edu\students\jad2828\IGMProfile\Desktop\hole-punch\Game\DirectX11_Starter\DirectXTK\Inc" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt DemoGame.cpp
          DemoGame.cpp
      1>\\banner.main.ad.rit.edu\students\jad2828\igmprofile\desktop\hole-punch\game\directx11_starter\demogame.cpp(329): error C2065: 'g_Sprites' : undeclared identifier
@@ -10,7 +48,12 @@
      1>\\banner.main.ad.rit.edu\students\jad2828\igmprofile\desktop\hole-punch\game\directx11_starter\demogame.cpp(332): error C2227: left of '->End' must point to class/struct/union/generic type
                  type is ''unknown-type''
      1>Done Building Project "\\banner.main.ad.rit.edu\students\jad2828\IGMProfile\Desktop\hole-punch\Game\DirectX11_Starter\DirectX11_Starter.vcxproj" (Build target(s)) -- FAILED.
+>>>>>>> .r19
 
-Build FAILED.
+Build succeeded.
 
+<<<<<<< .mine
+Time Elapsed 00:00:07.72
+=======
 Time Elapsed 00:00:05.17
+>>>>>>> .r19
