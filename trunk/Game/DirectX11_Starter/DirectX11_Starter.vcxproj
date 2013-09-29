@@ -91,6 +91,7 @@
     <ClCompile Include="DirectXTK\Src\WICTextureLoader.cpp" />
     <ClCompile Include="DXGame.cpp" />
     <ClCompile Include="GameTimer.cpp" />
+    <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DemoGame.h" />
@@ -118,6 +119,7 @@
     <ClInclude Include="DirectXTK\Src\SharedResourcePool.h" />
     <ClInclude Include="DXGame.h" />
     <ClInclude Include="GameTimer.h" />
+    <ClInclude Include="Sprite.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\PixelShader.hlsl">
