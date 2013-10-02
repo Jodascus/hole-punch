@@ -357,9 +357,30 @@ void DemoGame::OnMouseUp(WPARAM btnState, int x, int y)
 
 void DemoGame::OnMouseMove(WPARAM btnState, int x, int y)
 {
-	prevMousePos.x = x;
-	prevMousePos.y = y;
-	// Some camera rotation here eventually
+	if(x < prevMousePos.x)
+	{
+		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationY(-0.002))));
+		//cout << "Moving Left?";
+		prevMousePos.x = x;
+	}
+	else
+	{
+		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationY(0.002))));
+		cout << "Moving Right?";
+		prevMousePos.x = x;
+	}
+	
+	if(y < prevMousePos.y)
+	{
+		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationX(-0.002))));
+		prevMousePos.y = y;
+	}
+	else
+	{
+		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationX(0.002))));
+		prevMousePos.y = y;
+	}
+	
 }
 #pragma endregion
 

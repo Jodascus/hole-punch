@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <DirectXMath.h>
 #include "Windows.h"
 #include <string>
 #include <d3d11.h>
