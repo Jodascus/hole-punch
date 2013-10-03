@@ -56,6 +56,7 @@ public:
 	void OnMouseDown(WPARAM btnState, int x, int y);
 	void OnMouseUp(WPARAM btnState, int x, int y);
 	void OnMouseMove(WPARAM btnState, int x, int y);
+	void OnKeyDown(WPARAM keyCode);
 
 	//---------------------------------------------------------------Model related Variables
 	ModelType* m_model;	// an array of ModelTypes used to read in and hold model data
