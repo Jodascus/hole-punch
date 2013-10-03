@@ -359,25 +359,29 @@ void DemoGame::OnMouseMove(WPARAM btnState, int x, int y)
 {
 	if(x < prevMousePos.x)
 	{
-		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationY(0.002))));
+		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationY(0.002f))));
 		//cout << "Moving Left?";
+
+		//cap off movement to limit y
 		prevMousePos.x = x;
 	}
 	else
 	{
-		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationY(-0.002))));
-		cout << "Moving Right?";
+		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationY(-0.002f))));
+		//cout << "Moving Right?";
+
+		//cap off movement to limit x
 		prevMousePos.x = x;
 	}
 	
 	if(y < prevMousePos.y)
 	{
-		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationX(0.002))));
+		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationX(0.002f))));
 		prevMousePos.y = y;
 	}
 	else
 	{
-		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationX(-0.002))));
+		XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixRotationX(-0.002f))));
 		prevMousePos.y = y;
 	}
 	
@@ -391,16 +395,16 @@ void DemoGame::OnKeyDown(WPARAM keyCode)
 	switch(keyCode)
 	{
 		case 0x57://W
-			XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixTranslation(0,0,-0.01))));
+			XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixTranslation(0,0,-0.01f))));
 			break;
 		case 0x41://A
-			XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixTranslation(0.01,0,0))));
+			XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixTranslation(0.01f,0,0))));
 			break;
 		case 0x53://S
-			XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixTranslation(0,0,0.01))));
+			XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixTranslation(0,0,0.01f))));
 			break;
 		case 0x44://D
-			XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixTranslation(-0.01,0,0))));
+			XMStoreFloat4x4(&viewMatrix, XMMatrixTranspose(XMMatrixMultiply(XMMatrixTranspose(XMLoadFloat4x4(&viewMatrix)),XMMatrixTranslation(-0.01f,0,0))));
 			break;
 		default:
 			break;
