@@ -29,7 +29,9 @@
 #include "WICTextureLoader.h"
 
 using namespace DirectX;
-//std::unique_ptr <SpriteBatch> sprite (new SpriteBatch(deviceContext));
+
+// Global variables
+unique_ptr<SpriteBatch>   g_spriteBatch;
 ID3D11ShaderResourceView* g_pTexture;
 
 #pragma region Win32 Entry Point (WinMain)
@@ -55,8 +57,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE prevInstance,
 #pragma endregion
 
 #pragma region Constructor / Destructor
-
-
 
 DemoGame::DemoGame(HINSTANCE hInstance) : DXGame(hInstance)
 {
@@ -115,8 +115,9 @@ bool DemoGame::Init()
 	// Create DirectXTK objects
 	
 	//Load texture using WIC
-	//CreateWICTextureFromFile(device, deviceContext, L"Assets/enemy", NULL, &g_pTexture, NULL);
-	//sprite.reset( new SpriteBatch(deviceContext) );
+	HRESULT h = CreateWICTextureFromFile(device, deviceContext, L"enemy.png", NULL, &g_pTexture, NULL);
+
+	g_spriteBatch = unique_ptr<SpriteBatch>(new SpriteBatch(deviceContext));
 
 	return true;
 }
@@ -327,10 +328,11 @@ void DemoGame::DrawScene()
 		0);
 	
 	// Draw sprite
-//    sprite->Begin( SpriteSortMode_Deferred );
-    //g_Sprites->Draw( g_pTextureRV1, XMFLOAT2(10, 75 ), nullptr, Colors::White );
-	//sprite->Draw(g_pTextureRV1, XMFLOAT2(10, 10));
-   // sprite->End();
+	int tileWidth = 132, tileHeight = 128;
+
+    g_spriteBatch->Begin();
+	g_spriteBatch->Draw(g_pTexture, XMFLOAT2(tileWidth, tileHeight));
+	g_spriteBatch->End();
 
 	// Present the buffer
 	HR(swapChain->Present(0, 0));
@@ -443,7 +445,7 @@ bool DemoGame::LoadModel(char* filename)
 	m_model = new ModelType[m_vertexCount];
 	if(!m_model) return false;
 
-	//read beginning of the data
+	// Read beginning of the data
 	obj.get(input);
 	while(input != ':')
 	{
