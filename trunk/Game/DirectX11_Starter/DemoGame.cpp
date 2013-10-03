@@ -26,10 +26,11 @@
 #include "DemoGame.h"
 #include "SpriteBatch.h"
 #include "SpriteFont.h"
-#include "DDSTextureLoader.h"
+#include "WICTextureLoader.h"
 
 using namespace DirectX;
 //std::unique_ptr <SpriteBatch> sprite (new SpriteBatch(deviceContext));
+ID3D11ShaderResourceView* g_pTexture;
 
 #pragma region Win32 Entry Point (WinMain)
 
@@ -113,10 +114,9 @@ bool DemoGame::Init()
 	
 	// Create DirectXTK objects
 	
+	//Load texture using WIC
+	//CreateWICTextureFromFile(device, deviceContext, L"Assets/enemy", NULL, &g_pTexture, NULL);
 	//sprite.reset( new SpriteBatch(deviceContext) );
-
-	// Load the Texture
-	//HR(CreateDDSTextureFromFile(device, L"Assets/enemy.dds", nullptr, ));
 
 	return true;
 }
