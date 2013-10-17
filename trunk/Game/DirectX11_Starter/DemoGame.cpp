@@ -115,7 +115,7 @@ bool DemoGame::Init()
 	// Create DirectXTK objects
 	
 	//Load texture using WIC
-	HRESULT h = CreateWICTextureFromFile(device, deviceContext, L"enemy.png", NULL, &g_pTexture, NULL);
+	HRESULT h = CreateWICTextureFromFile(device, deviceContext, L"health_bar.png", NULL, &g_pTexture, NULL);
 
 	g_spriteBatch = unique_ptr<SpriteBatch>(new SpriteBatch(deviceContext));
 
@@ -331,7 +331,7 @@ void DemoGame::DrawScene()
 	int tileWidth = 132, tileHeight = 128;
 
     g_spriteBatch->Begin();
-	g_spriteBatch->Draw(g_pTexture, XMFLOAT2(tileWidth, tileHeight));
+	g_spriteBatch->Draw(g_pTexture, XMFLOAT2(0, 0));
 	g_spriteBatch->End();
 
 	// Present the buffer
