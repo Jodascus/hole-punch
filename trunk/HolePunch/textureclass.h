@@ -4,13 +4,16 @@
 #ifndef _TEXTURECLASS_H_
 #define _TEXTURECLASS_H_
 
-
 //////////////
 // INCLUDES //
 //////////////
 #include <d3d11.h>
-#include <d3dx11tex.h>
 
+#include <DirectXMath.h>
+#include <DirectXPackedVector.h>
+#include <DirectXColors.h>
+
+using namespace std;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Class name: TextureClass

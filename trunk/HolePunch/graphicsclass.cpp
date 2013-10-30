@@ -3,11 +3,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "graphicsclass.h"
 
+using namespace DirectX;
 
 GraphicsClass::GraphicsClass()
 {
 }
-
 
 GraphicsClass::GraphicsClass(const GraphicsClass& other)
 {
@@ -17,16 +17,13 @@ GraphicsClass::GraphicsClass(const GraphicsClass& other)
 	m_TextureShader = 0;
 }
 
-
 GraphicsClass::~GraphicsClass()
 {
 }
 
-
 bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
-
 
 	// Create the Direct3D object.
 	m_D3D = new D3DClass;
@@ -140,7 +137,7 @@ bool GraphicsClass::Frame()
 
 bool GraphicsClass::Render()
 {
-	D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix;
+	XMMATRIX viewMatrix, projectionMatrix, worldMatrix;
 	bool result;
 
 

@@ -4,18 +4,19 @@
 #ifndef _MODELCLASS_H_
 #define _MODELCLASS_H_
 
-
 //////////////
 // INCLUDES //
 //////////////
 #include <d3d11.h>
-#include <d3dx10math.h>
+
+#include <DirectXMath.h>
+#include <DirectXPackedVector.h>
+#include <DirectXColors.h>
 
 ///////////////////////
 // MY CLASS INCLUDES //
 ///////////////////////
 #include "textureclass.h"
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // Class name: ModelClass
@@ -25,8 +26,8 @@ class ModelClass
 private:
 	struct VertexType
 	{
-		D3DXVECTOR3 position;
-		D3DXVECTOR2 texture;
+		XMFLOAT2 position;
+		XMFLOAT2 texture;
 	};
 
 public:

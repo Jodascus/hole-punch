@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "cameraclass.h"
 
+using namespace DirectX;
 
 CameraClass::CameraClass()
 {
@@ -15,16 +16,13 @@ CameraClass::CameraClass()
 	m_rotationZ = 0.0f;
 }
 
-
 CameraClass::CameraClass(const CameraClass& other)
 {
 }
 
-
 CameraClass::~CameraClass()
 {
 }
-
 
 void CameraClass::SetPosition(float x, float y, float z)
 {
@@ -43,25 +41,21 @@ void CameraClass::SetRotation(float x, float y, float z)
 	return;
 }
 
-
-D3DXVECTOR3 CameraClass::GetPosition()
+XMFLOAT3 CameraClass::GetPosition()
 {
-	return D3DXVECTOR3(m_positionX, m_positionY, m_positionZ);
+	return XMFLOAT3(m_positionX, m_positionY, m_positionZ);
 }
 
-
-D3DXVECTOR3 CameraClass::GetRotation()
+XMFLOAT3 CameraClass::GetRotation()
 {
-	return D3DXVECTOR3(m_rotationX, m_rotationY, m_rotationZ);
+	return XMFLOAT3(m_rotationX, m_rotationY, m_rotationZ);
 }
-
 
 void CameraClass::Render()
 {
-	D3DXVECTOR3 up, position, lookAt;
+	XMFLOAT3 up, position, lookAt;
 	float yaw, pitch, roll;
-	D3DXMATRIX rotationMatrix;
-
+	XMMATRIX rotationMatrix;
 
 	// Setup the vector that points upwards.
 	up.x = 0.0f;
@@ -84,23 +78,27 @@ void CameraClass::Render()
 	roll  = m_rotationZ * 0.0174532925f;
 
 	// Create the rotation matrix from the yaw, pitch, and roll values.
-	D3DXMatrixRotationYawPitchRoll(&rotationMatrix, yaw, pitch, roll);
+	rotationMatrix = XMMatrixRotationRollPitchYaw(yaw, pitch, roll);
+
+	//old code, now takes one less parameter
+	//XMMatrixRotationYawPitchRoll(&rotationMatrix, yaw, pitch, roll);
 
 	// Transform the lookAt and up vector by the rotation matrix so the view is correctly rotated at the origin.
-	D3DXVec3TransformCoord(&lookAt, &lookAt, &rotationMatrix);
-	D3DXVec3TransformCoord(&up, &up, &rotationMatrix);
+	XMVector3TransformCoord(&lookAt, rotationMatrix);
+	//XMFloat3Transform
+	XMVector3TransformCoord(&up, rotationMatrix);
 
 	// Translate the rotated camera position to the location of the viewer.
 	lookAt = position + lookAt;
 
 	// Finally create the view matrix from the three updated vectors.
-	D3DXMatrixLookAtLH(&m_viewMatrix, &position, &lookAt, &up);
+	//D3DXMatrixLookAtLH(&m_viewMatrix, &position, &lookAt, &up);
+	m_viewMatrix = XMMatrixLookAtLH(&position, &lookAt, &up);
 
 	return;
 }
 
-
-void CameraClass::GetViewMatrix(D3DXMATRIX& viewMatrix)
+void CameraClass::GetViewMatrix(XMMATRIX viewMatrix)
 {
 	viewMatrix = m_viewMatrix;
 	return;
