@@ -25,7 +25,6 @@ bool ColorShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 {
 	bool result;
 
-
 	// Initialize the vertex and pixel shaders.
 	result = InitializeShader(device, hwnd, L"../HolePunch/color.vs", L"../HolePunch/color.ps");
 	if(!result)

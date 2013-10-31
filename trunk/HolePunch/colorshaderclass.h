@@ -11,6 +11,7 @@
 #include <DirectXPackedVector.h>
 #include <DirectXColors.h>
 #include <fstream>
+#include <d3d11.h>
 
 using namespace std;
 
