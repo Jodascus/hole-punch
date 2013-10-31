@@ -16,6 +16,9 @@
 #include <DirectXPackedVector.h>
 #include <DirectXColors.h>
 
+#include "lightshaderclass.h"
+#include "lightclass.h"
+
 /////////////
 // GLOBALS //
 /////////////
@@ -46,6 +49,8 @@ private:
 	CameraClass* m_Camera;
 	ModelClass* m_Model;
 	TextureShaderClass* m_TextureShader;
+	LightShaderClass* m_LightShader;
+	LightClass* m_Light;
 };
 
 #endif

@@ -33,7 +33,7 @@ public:
 	ColorShaderClass(const ColorShaderClass&);
 	~ColorShaderClass();
 	
-	bool Initialize(ID3D11DeviceContext*, HWND);
+	bool Initialize(ID3D11Device*, HWND);
 	void Shutdown();
 	bool Render(ID3D11DeviceContext*, int, XMMATRIX, XMMATRIX, XMMATRIX);
 
