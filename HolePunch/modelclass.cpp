@@ -3,7 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "modelclass.h"
 
-
 ModelClass::ModelClass()
 {
 	m_vertexBuffer = 0;
@@ -11,21 +10,17 @@ ModelClass::ModelClass()
 	m_Texture = 0;
 }
 
-
 ModelClass::ModelClass(const ModelClass& other)
 {
 }
-
 
 ModelClass::~ModelClass()
 {
 }
 
-
 bool ModelClass::Initialize(ID3D11Device* device, WCHAR* textureFilename)
 {
 	bool result;
-
 
 	// Initialize the vertex and index buffers.
 	result = InitializeBuffers(device);
@@ -44,7 +39,6 @@ bool ModelClass::Initialize(ID3D11Device* device, WCHAR* textureFilename)
 	return true;
 }
 
-
 void ModelClass::Shutdown()
 {
 	// Release the model texture.
@@ -56,7 +50,6 @@ void ModelClass::Shutdown()
 	return;
 }
 
-
 void ModelClass::Render(ID3D11DeviceContext* deviceContext)
 {
 	// Put the vertex and index buffers on the graphics pipeline to prepare them for drawing.
@@ -64,7 +57,6 @@ void ModelClass::Render(ID3D11DeviceContext* deviceContext)
 
 	return;
 }
-
 
 int ModelClass::GetIndexCount()
 {
@@ -83,7 +75,6 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
     D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
-
 
 	// Set the number of vertices in the vertex array.
 	m_vertexCount = 3;
@@ -106,14 +97,14 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	}
 
 	// Load the vertex array with data.
-	vertices[0].position = D3DXVECTOR3(-1.0f, -1.0f, 0.0f);  // Bottom left.
-	vertices[0].texture = D3DXVECTOR2(0.0f, 1.0f);
+	vertices[0].position = XMFLOAT3(-1.0f, -1.0f, 0.0f);  // Bottom left.
+	vertices[0].texture = XMFLOAT2(0.0f, 1.0f);
 
-	vertices[1].position = D3DXVECTOR3(0.0f, 1.0f, 0.0f);  // Top middle.
-	vertices[1].texture = D3DXVECTOR2(0.5f, 0.0f);
+	vertices[1].position = XMFLOAT3(0.0f, 1.0f, 0.0f);  // Top middle.
+	vertices[1].texture = XMFLOAT2(0.5f, 0.0f);
 
-	vertices[2].position = D3DXVECTOR3(1.0f, -1.0f, 0.0f);  // Bottom right.
-	vertices[2].texture = D3DXVECTOR2(1.0f, 1.0f);
+	vertices[2].position = XMFLOAT3(1.0f, -1.0f, 0.0f);  // Bottom right.
+	vertices[2].texture = XMFLOAT2(1.0f, 1.0f);
 
 	// Load the index array with data.
 	indices[0] = 0;  // Bottom left.

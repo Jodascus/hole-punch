@@ -22,9 +22,9 @@ bool TextureClass::Initialize(ID3D11Device* device, WCHAR* filename)
 {
 	HRESULT result;
 
-
 	// Load the texture in
-	result = D3DX11CreateShaderResourceViewFromFile(device, filename, NULL, NULL, &m_texture, NULL);
+	////currently broken
+	//result = D3D11CreateShaderResourceViewFromFile(device, filename, NULL, NULL, &m_texture, NULL);
 	if (FAILED(result))
 	{
 		return false;

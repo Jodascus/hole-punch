@@ -10,7 +10,6 @@
 #include "d3dclass.h"
 #include "cameraclass.h"
 #include "modelclass.h"
-#include "textureshaderclass.h"
 
 #include <DirectXMath.h>
 #include <DirectXPackedVector.h>
@@ -48,7 +47,6 @@ private:
 	D3DClass* m_D3D;
 	CameraClass* m_Camera;
 	ModelClass* m_Model;
-	TextureShaderClass* m_TextureShader;
 	LightShaderClass* m_LightShader;
 	LightClass* m_Light;
 };
