@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "modelclass.h"
 
+#pragma region constructors and destructor
 ModelClass::ModelClass()
 {
 	m_vertexBuffer = 0;
@@ -17,10 +18,19 @@ ModelClass::ModelClass(const ModelClass& other)
 ModelClass::~ModelClass()
 {
 }
+#pragma endregion
 
-bool ModelClass::Initialize(ID3D11Device* device, WCHAR* textureFilename)
+#pragma region initialize and shutdown
+bool ModelClass::Initialize(ID3D11Device* device, char* filePath, WCHAR* textureFilename)
 {
 	bool result;
+	m_indexCount = 0;
+
+	result = LoadModel(filePath);
+	if (!result)
+	{
+		return false;
+	}
 
 	// Initialize the vertex and index buffers.
 	result = InitializeBuffers(device);
@@ -47,9 +57,14 @@ void ModelClass::Shutdown()
 	// Shutdown the vertex and index buffers.
 	ShutdownBuffers();
 
+	// Release the model data
+	ReleaseModel();
+
 	return;
 }
+#pragma endregion
 
+#pragma region rendering
 void ModelClass::Render(ID3D11DeviceContext* deviceContext)
 {
 	// Put the vertex and index buffers on the graphics pipeline to prepare them for drawing.
@@ -57,7 +72,9 @@ void ModelClass::Render(ID3D11DeviceContext* deviceContext)
 
 	return;
 }
+#pragma endregion
 
+#pragma region getters
 int ModelClass::GetIndexCount()
 {
 	return m_indexCount;
@@ -67,7 +84,9 @@ ID3D11ShaderResourceView* ModelClass::GetTexture()
 {
 	return m_Texture->GetTexture();
 }
+#pragma endregion
 
+#pragma region buffers
 bool ModelClass::InitializeBuffers(ID3D11Device* device)
 {
 	VertexType* vertices;
@@ -75,12 +94,7 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
     D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
-
-	// Set the number of vertices in the vertex array.
-	m_vertexCount = 3;
-
-	// Set the number of indices in the index array.
-	m_indexCount = 3;
+	int i;
 
 	// Create the vertex array.
 	vertices = new VertexType[m_vertexCount];
@@ -96,20 +110,15 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 		return false;
 	}
 
-	// Load the vertex array with data.
-	vertices[0].position = XMFLOAT3(-1.0f, -1.0f, 0.0f);  // Bottom left.
-	vertices[0].texture = XMFLOAT2(0.0f, 1.0f);
+	// Load the vertex array and index array with data.
+	for (i = 0; i < m_vertexCount; i++)
+	{
+		vertices[i].position = XMFLOAT3(m_model[i].x, m_model[i].y, m_model[i].z);
+		vertices[i].texture = XMFLOAT2(m_model[i].tu, m_model[i].tv);
+		vertices[i].normal = XMFLOAT3(m_model[i].nx, m_model[i].ny, m_model[i].nz);
 
-	vertices[1].position = XMFLOAT3(0.0f, 1.0f, 0.0f);  // Top middle.
-	vertices[1].texture = XMFLOAT2(0.5f, 0.0f);
-
-	vertices[2].position = XMFLOAT3(1.0f, -1.0f, 0.0f);  // Bottom right.
-	vertices[2].texture = XMFLOAT2(1.0f, 1.0f);
-
-	// Load the index array with data.
-	indices[0] = 0;  // Bottom left.
-	indices[1] = 1;  // Top middle.
-	indices[2] = 2;  // Bottom right.
+		indices[i] = i;
+	}
 
 	// Set up the description of the static vertex buffer.
     vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
@@ -203,6 +212,9 @@ void ModelClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 
 	return;
 }
+#pragma endregion
+
+#pragma region loading
 
 bool ModelClass::LoadTexture(ID3D11Device* device, WCHAR* filename)
 {
@@ -238,3 +250,74 @@ void ModelClass::ReleaseTexture()
 
 	return;
 }
+
+bool ModelClass::LoadModel(char* filename)
+{
+	ifstream fin;
+	char input;
+	int i;
+
+
+	// Open the model file.
+	fin.open(filename);
+
+	// If it could not open the file then exit.
+	if (fin.fail())
+	{
+		return false;
+	}
+
+	// Read up to the value of vertex count.
+	fin.get(input);
+	while (input != ':')
+	{
+		fin.get(input);
+	}
+
+	// Read in the vertex count.
+	fin >> m_vertexCount;
+
+	// Set the number of indices to be the same as the vertex count.
+	m_indexCount = m_vertexCount;
+
+	// Create the model using the vertex count that was read in.
+	m_model = new ModelType[m_vertexCount];
+	if (!m_model)
+	{
+		return false;
+	}
+
+	// Read up to the beginning of the data.
+	fin.get(input);
+	while (input != ':')
+	{
+		fin.get(input);
+	}
+	fin.get(input);
+	fin.get(input);
+
+	// Read in the vertex data.
+	for (i = 0; i < m_vertexCount; i++)
+	{
+		fin >> m_model[i].x >> m_model[i].y >> m_model[i].z;
+		fin >> m_model[i].tu >> m_model[i].tv;
+		fin >> m_model[i].nx >> m_model[i].ny >> m_model[i].nz;
+	}
+
+	// Close the model file.
+	fin.close();
+
+	return true;
+}
+
+void ModelClass::ReleaseModel()
+{
+	if (m_model)
+	{
+		delete[] m_model;
+		m_model = 0;
+	}
+
+	return;
+}
+#pragma endregion
