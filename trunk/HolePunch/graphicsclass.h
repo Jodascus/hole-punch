@@ -18,6 +18,8 @@
 #include "lightshaderclass.h"
 #include "lightclass.h"
 
+#include <vector>
+
 /////////////
 // GLOBALS //
 /////////////
@@ -49,6 +51,9 @@ private:
 	ModelClass* m_Model;
 	LightShaderClass* m_LightShader;
 	LightClass* m_Light;
+
+	vector<char*> m_FileNames;
+	vector<ModelClass*> m_List;
 };
 
 #endif

@@ -26,6 +26,8 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
 
+	m_FileNames = { "../HolePunch/Data/enemy.txt", "../HolePunch/Data/cModel.txt" };
+
 	// Create the Direct3D object.
 	m_D3D = new D3DClass;
 	if (!m_D3D)
@@ -52,18 +54,22 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Camera->SetPosition(0.0f, 0.0f, -10.0f);
 
 	// Create the model object.
-	m_Model = new ModelClass;
-	if (!m_Model)
+	for each(char* fileName in m_FileNames)
 	{
-		return false;
-	}
+		m_Model = new ModelClass;
+		if (!m_Model)
+		{
+			return false;
+		}
 
-	// Initialize the model object.
-	result = m_Model->Initialize(m_D3D->GetDevice(), L"../HolePunch/Data/seafloor.dds");
-	if (!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
-		return false;
+		// Initialize the model object.
+		result = m_Model->Initialize(m_D3D->GetDevice(), fileName, L"../HolePunch/Data/seafloor.dds");
+		if (!result)
+		{
+			MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
+			return false;
+		}
+		m_List.push_back(m_Model);
 	}
 
 	// Create the light shader object.
@@ -113,11 +119,14 @@ void GraphicsClass::Shutdown()
 	}
 
 	// Release the model object.
-	if (m_Model)
+	for each (ModelClass* m_Model in m_List)
 	{
-		m_Model->Shutdown();
-		delete m_Model;
-		m_Model = 0;
+		if (m_Model)
+		{
+			m_Model->Shutdown();
+			delete m_Model;
+			m_Model = 0;
+		}
 	}
 
 	// Release the camera object.
@@ -169,15 +178,34 @@ bool GraphicsClass::Render()
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
 	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
-	m_Model->Render(m_D3D->GetDeviceContext());
-
-	// Render the model using the light shader.
-	result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-		m_Model->GetTexture(), m_Light->GetDirection(), m_Light->GetDiffuseColor());
-	if (!result)
+	for (int i = 0; i < m_List.size(); i++)
 	{
-		return false;
+		// Move the model to the location it should be rendered at.
+		//D3DXMatrixTranslation(&worldMatrix, 0, 0, 0);
+
+		m_List[i]->Render(m_D3D->GetDeviceContext());
+
+		// Reset to the original world matrix.
+		m_D3D->GetWorldMatrix(worldMatrix);
+
+		/*// Render the model using the texture shader.
+		result = m_TextureShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
+			m_List[i]->GetTexture());
+		if (!result)
+		{
+			return false;
+		}*/
+
+		// Render the model using the light shader.
+		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
+			m_Model->GetTexture(), m_Light->GetDirection(), m_Light->GetDiffuseColor());
+		if (!result)
+		{
+			return false;
+		}
+
 	}
+	
 
 	// Present the rendered scene to the screen.
 	m_D3D->EndScene();
