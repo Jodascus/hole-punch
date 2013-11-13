@@ -1,563 +1,349 @@
-﻿Build started 11/6/2013 9:49:11 PM.
-     1>Project "C:\Users\Hillary\Desktop\temp\HolePunch\HolePunch.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/13/2013 6:05:20 PM.
+     1>Project "C:\Users\Josh\Desktop\hole-punch\HolePunch\HolePunch.vcxproj" on node 2 (Build target(s)).
+       Project file contains ToolsVersion="12.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="4.0". For more information, please see http://go.microsoft.com/fwlink/?LinkId=291333.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt cameraclass.cpp colorshaderclass.cpp d3dclass.cpp graphicsclass.cpp lightshaderclass.cpp main.cpp systemclass.cpp textureclass.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt cameraclass.cpp colorshaderclass.cpp d3dclass.cpp graphicsclass.cpp lightshaderclass.cpp main.cpp systemclass.cpp textureclass.cpp
          textureclass.cpp
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50379) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50388) : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50398) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50407) : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
-     1>c:\users\hillary\desktop\temp\holepunch\textureclass.cpp(23): warning C4101: 'result' : unreferenced local variable
          systemclass.cpp
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50379) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50388) : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50398) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50407) : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(43): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(44): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(45): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(61): error C2146: syntax error : missing ';' before identifier 'm_projectionMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(62): error C2146: syntax error : missing ';' before identifier 'm_worldMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(62): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(63): error C2146: syntax error : missing ';' before identifier 'm_orthoMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(63): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): error C2146: syntax error : missing ';' before identifier 'GetPosition'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): warning C4183: 'GetPosition': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): error C2146: syntax error : missing ';' before identifier 'GetRotation'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): warning C4183: 'GetRotation': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(31): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(36): error C2146: syntax error : missing ';' before identifier 'm_viewMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.h(47): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.h(54): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): warning C4183: 'GetDevice': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): warning C4183: 'GetDeviceContext': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(43): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(44): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(45): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(54): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(54): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(55): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(56): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(56): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(57): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(57): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(58): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(58): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(59): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(59): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(60): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(60): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(61): error C2146: syntax error : missing ';' before identifier 'm_projectionMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(62): error C2146: syntax error : missing ';' before identifier 'm_worldMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(62): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(63): error C2146: syntax error : missing ';' before identifier 'm_orthoMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(63): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): error C2146: syntax error : missing ';' before identifier 'GetPosition'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): warning C4183: 'GetPosition': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): error C2146: syntax error : missing ';' before identifier 'GetRotation'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): warning C4183: 'GetRotation': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(31): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(36): error C2146: syntax error : missing ';' before identifier 'm_viewMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.h(47): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.h(54): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
          main.cpp
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50379) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50388) : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50398) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50407) : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(43): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(44): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(45): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(61): error C2146: syntax error : missing ';' before identifier 'm_projectionMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(62): error C2146: syntax error : missing ';' before identifier 'm_worldMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(62): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(63): error C2146: syntax error : missing ';' before identifier 'm_orthoMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(63): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): error C2146: syntax error : missing ';' before identifier 'GetPosition'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): warning C4183: 'GetPosition': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): error C2146: syntax error : missing ';' before identifier 'GetRotation'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): warning C4183: 'GetRotation': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(31): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(36): error C2146: syntax error : missing ';' before identifier 'm_viewMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.h(47): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.h(54): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): warning C4183: 'GetDevice': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): warning C4183: 'GetDeviceContext': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(43): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(44): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(45): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(54): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(54): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(55): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(56): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(56): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(57): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(57): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(58): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(58): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(59): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(59): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(60): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(60): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(61): error C2146: syntax error : missing ';' before identifier 'm_projectionMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(62): error C2146: syntax error : missing ';' before identifier 'm_worldMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(62): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(63): error C2146: syntax error : missing ';' before identifier 'm_orthoMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(63): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): error C2146: syntax error : missing ';' before identifier 'GetPosition'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): warning C4183: 'GetPosition': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): error C2146: syntax error : missing ';' before identifier 'GetRotation'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): warning C4183: 'GetRotation': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(31): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(36): error C2146: syntax error : missing ';' before identifier 'm_viewMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.h(47): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.h(54): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
          lightshaderclass.cpp
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50379) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50388) : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50398) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50407) : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.h(47): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.h(54): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.cpp(47): error C2719: 'worldMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.cpp(47): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.cpp(47): error C2719: 'projectionMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.cpp(84): error C3861: 'D3DX11CompileFromFile': identifier not found
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.cpp(103): error C3861: 'D3DX11CompileFromFile': identifier not found
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.cpp(318): error C2719: 'worldMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.cpp(318): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.cpp(318): error C2719: 'projectionMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.h(47): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.h(54): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.cpp(47): error C2719: 'worldMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.cpp(47): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.cpp(47): error C2719: 'projectionMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.cpp(84): error C3861: 'D3DX11CompileFromFile': identifier not found
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.cpp(103): error C3861: 'D3DX11CompileFromFile': identifier not found
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.cpp(318): error C2719: 'worldMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.cpp(318): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.cpp(318): error C2719: 'projectionMatrix': formal parameter with __declspec(align('16')) won't be aligned
          graphicsclass.cpp
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50379) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50388) : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50398) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50407) : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(43): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(44): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(45): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(61): error C2146: syntax error : missing ';' before identifier 'm_projectionMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(62): error C2146: syntax error : missing ';' before identifier 'm_worldMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(62): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(63): error C2146: syntax error : missing ';' before identifier 'm_orthoMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(63): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): error C2146: syntax error : missing ';' before identifier 'GetPosition'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): warning C4183: 'GetPosition': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): error C2146: syntax error : missing ';' before identifier 'GetRotation'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): warning C4183: 'GetRotation': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(31): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(36): error C2146: syntax error : missing ';' before identifier 'm_viewMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.h(47): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\lightshaderclass.h(54): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\graphicsclass.cpp(176): error C2660: 'CameraClass::GetViewMatrix' : function does not take 1 arguments
-     1>c:\users\hillary\desktop\temp\holepunch\graphicsclass.cpp(177): error C2660: 'D3DClass::GetWorldMatrix' : function does not take 1 arguments
-     1>c:\users\hillary\desktop\temp\holepunch\graphicsclass.cpp(178): error C2660: 'D3DClass::GetProjectionMatrix' : function does not take 1 arguments
-     1>c:\users\hillary\desktop\temp\holepunch\graphicsclass.cpp(181): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\hillary\desktop\temp\holepunch\graphicsclass.cpp(189): error C2660: 'D3DClass::GetWorldMatrix' : function does not take 1 arguments
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): warning C4183: 'GetDevice': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): warning C4183: 'GetDeviceContext': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(43): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(44): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(45): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(54): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(54): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(55): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(56): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(56): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(57): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(57): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(58): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(58): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(59): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(59): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(60): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(60): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(61): error C2146: syntax error : missing ';' before identifier 'm_projectionMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(62): error C2146: syntax error : missing ';' before identifier 'm_worldMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(62): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(63): error C2146: syntax error : missing ';' before identifier 'm_orthoMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(63): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): error C2146: syntax error : missing ';' before identifier 'GetPosition'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): warning C4183: 'GetPosition': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): error C2146: syntax error : missing ';' before identifier 'GetRotation'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): warning C4183: 'GetRotation': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(31): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(36): error C2146: syntax error : missing ';' before identifier 'm_viewMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.h(47): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\lightshaderclass.h(54): error C2719: 'unnamed-parameter': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(29): error C2059: syntax error : '{'
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(29): error C2143: syntax error : missing ';' before '{'
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(29): error C2143: syntax error : missing ';' before '}'
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(66): error C2664: 'ModelClass::Initialize' : cannot convert parameter 1 from 'int *' to 'ID3D11Device *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(83): error C2664: 'LightShaderClass::Initialize' : cannot convert parameter 1 from 'int *' to 'ID3D11Device *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(176): error C2660: 'CameraClass::GetViewMatrix' : function does not take 1 arguments
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(177): error C2660: 'D3DClass::GetWorldMatrix' : function does not take 1 arguments
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(178): error C2660: 'D3DClass::GetProjectionMatrix' : function does not take 1 arguments
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(181): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(186): error C2664: 'ModelClass::Render' : cannot convert parameter 1 from 'int *' to 'ID3D11DeviceContext *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(189): error C2660: 'D3DClass::GetWorldMatrix' : function does not take 1 arguments
+     1>c:\users\josh\desktop\hole-punch\holepunch\graphicsclass.cpp(201): error C2664: 'LightShaderClass::Render' : cannot convert parameter 1 from 'int *' to 'ID3D11DeviceContext *'
+                 Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
          d3dclass.cpp
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50379) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50388) : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50398) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50407) : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(43): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(44): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(45): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(61): error C2146: syntax error : missing ';' before identifier 'm_projectionMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(62): error C2146: syntax error : missing ';' before identifier 'm_worldMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(62): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(63): error C2146: syntax error : missing ';' before identifier 'm_orthoMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.h(63): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.cpp(335): error C2065: 'D3DX_PI' : undeclared identifier
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.cpp(339): error C2065: 'm_projectionMatrix' : undeclared identifier
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.cpp(342): error C2065: 'm_worldMatrix' : undeclared identifier
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.cpp(345): error C2065: 'm_orthoMatrix' : undeclared identifier
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.cpp(462): error C2511: 'void D3DClass::GetProjectionMatrix(DirectX::XMMATRIX &)' : overloaded member function not found in 'D3DClass'
-                 c:\users\hillary\desktop\temp\holepunch\d3dclass.h(28) : see declaration of 'D3DClass'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.cpp(463): error C2065: 'm_projectionMatrix' : undeclared identifier
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.cpp(469): error C2511: 'void D3DClass::GetWorldMatrix(DirectX::XMMATRIX &)' : overloaded member function not found in 'D3DClass'
-                 c:\users\hillary\desktop\temp\holepunch\d3dclass.h(28) : see declaration of 'D3DClass'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.cpp(470): error C2065: 'm_worldMatrix' : undeclared identifier
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.cpp(476): error C2511: 'void D3DClass::GetOrthoMatrix(DirectX::XMMATRIX &)' : overloaded member function not found in 'D3DClass'
-                 c:\users\hillary\desktop\temp\holepunch\d3dclass.h(28) : see declaration of 'D3DClass'
-     1>c:\users\hillary\desktop\temp\holepunch\d3dclass.cpp(477): error C2065: 'm_orthoMatrix' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(40): warning C4183: 'GetDevice': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(41): warning C4183: 'GetDeviceContext': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(43): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(44): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(45): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(54): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(54): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(55): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(55): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(56): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(56): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(57): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(57): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(58): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(58): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(59): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(59): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(60): error C2143: syntax error : missing ';' before '*'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(60): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(61): error C2146: syntax error : missing ';' before identifier 'm_projectionMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(62): error C2146: syntax error : missing ';' before identifier 'm_worldMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(62): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(63): error C2146: syntax error : missing ';' before identifier 'm_orthoMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.h(63): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(11): error C2065: 'm_device' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(12): error C2065: 'm_deviceContext' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(13): error C2065: 'm_renderTargetView' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(14): error C2065: 'm_depthStencilBuffer' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(15): error C2065: 'm_depthStencilState' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(16): error C2065: 'm_depthStencilView' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(17): error C2065: 'm_rasterState' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(41): error C2065: 'ID3D11Texture2D' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(41): error C2065: 'backBufferPtr' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(42): error C2065: 'D3D11_TEXTURE2D_DESC' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(42): error C2146: syntax error : missing ';' before identifier 'depthBufferDesc'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(42): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(43): error C2065: 'D3D11_DEPTH_STENCIL_DESC' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(43): error C2146: syntax error : missing ';' before identifier 'depthStencilDesc'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(43): error C2065: 'depthStencilDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(44): error C2065: 'D3D11_DEPTH_STENCIL_VIEW_DESC' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(44): error C2146: syntax error : missing ';' before identifier 'depthStencilViewDesc'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(44): error C2065: 'depthStencilViewDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(45): error C2065: 'D3D11_RASTERIZER_DESC' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(45): error C2146: syntax error : missing ';' before identifier 'rasterDesc'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(45): error C2065: 'rasterDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(46): error C2065: 'D3D11_VIEWPORT' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(46): error C2146: syntax error : missing ';' before identifier 'viewport'
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(46): error C2065: 'viewport' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(202): error C2065: 'D3D11_SDK_VERSION' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(202): error C2065: 'm_device' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(202): error C2065: 'm_deviceContext' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(201): error C3861: 'D3D11CreateDeviceAndSwapChain': identifier not found
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(209): error C2065: 'ID3D11Texture2D' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(209): error C2065: 'backBufferPtr' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(216): error C2065: 'm_device' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(216): error C2227: left of '->CreateRenderTargetView' must point to class/struct/union/generic type
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(216): error C2065: 'backBufferPtr' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(216): error C2065: 'm_renderTargetView' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(223): error C2065: 'backBufferPtr' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(223): error C2227: left of '->Release' must point to class/struct/union/generic type
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(224): error C2065: 'backBufferPtr' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(227): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(227): error C2070: ''unknown-type'': illegal sizeof operand
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(230): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(230): error C2228: left of '.Width' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(231): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(231): error C2228: left of '.Height' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(232): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(232): error C2228: left of '.MipLevels' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(233): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(233): error C2228: left of '.ArraySize' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(234): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(234): error C2228: left of '.Format' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(235): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(235): error C2228: left of '.SampleDesc' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(235): error C2228: left of '.Count' must have class/struct/union
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(236): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(236): error C2228: left of '.SampleDesc' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(236): error C2228: left of '.Quality' must have class/struct/union
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(237): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(237): error C2228: left of '.Usage' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(237): error C2065: 'D3D11_USAGE_DEFAULT' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(238): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(238): error C2228: left of '.BindFlags' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(238): error C2065: 'D3D11_BIND_DEPTH_STENCIL' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(239): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(239): error C2228: left of '.CPUAccessFlags' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(240): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(240): error C2228: left of '.MiscFlags' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(243): error C2065: 'm_device' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(243): error C2227: left of '->CreateTexture2D' must point to class/struct/union/generic type
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(243): error C2065: 'depthBufferDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(243): error C2065: 'm_depthStencilBuffer' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(250): error C2065: 'depthStencilDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(250): error C2070: ''unknown-type'': illegal sizeof operand
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(253): error C2065: 'depthStencilDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(253): error C2228: left of '.DepthEnable' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(254): error C2065: 'depthStencilDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(254): error C2228: left of '.DepthWriteMask' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(254): error C2065: 'D3D11_DEPTH_WRITE_MASK_ALL' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(255): error C2065: 'depthStencilDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(255): error C2228: left of '.DepthFunc' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(255): error C2065: 'D3D11_COMPARISON_LESS' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(257): error C2065: 'depthStencilDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(257): error C2228: left of '.StencilEnable' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(258): error C2065: 'depthStencilDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(258): error C2228: left of '.StencilReadMask' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(259): error C2065: 'depthStencilDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(259): error C2228: left of '.StencilWriteMask' must have class/struct/union
+                 type is ''unknown-type''
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(262): error C2065: 'depthStencilDesc' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\d3dclass.cpp(262): fatal error C1003: error count exceeds 100; stopping compilation
          colorshaderclass.cpp
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50002) : see previous definition of 'DXGI_STATUS_OCCLUDED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50011) : see previous definition of 'DXGI_STATUS_CLIPPED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50020) : see previous definition of 'DXGI_STATUS_NO_REDIRECTION'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50029) : see previous definition of 'DXGI_STATUS_NO_DESKTOP_ACCESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50038) : see previous definition of 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50047) : see previous definition of 'DXGI_STATUS_MODE_CHANGED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50056) : see previous definition of 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50071) : see previous definition of 'DXGI_ERROR_INVALID_CALL'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50080) : see previous definition of 'DXGI_ERROR_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50089) : see previous definition of 'DXGI_ERROR_MORE_DATA'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50098) : see previous definition of 'DXGI_ERROR_UNSUPPORTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50107) : see previous definition of 'DXGI_ERROR_DEVICE_REMOVED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50116) : see previous definition of 'DXGI_ERROR_DEVICE_HUNG'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50126) : see previous definition of 'DXGI_ERROR_DEVICE_RESET'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50135) : see previous definition of 'DXGI_ERROR_WAS_STILL_DRAWING'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50145) : see previous definition of 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50154) : see previous definition of 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50164) : see previous definition of 'DXGI_ERROR_DRIVER_INTERNAL_ERROR'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50173) : see previous definition of 'DXGI_ERROR_NONEXCLUSIVE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50182) : see previous definition of 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50192) : see previous definition of 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50201) : see previous definition of 'DXGI_ERROR_REMOTE_OUTOFMEMORY'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50379) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50388) : see previous definition of 'D3D11_ERROR_FILE_NOT_FOUND'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50398) : see previous definition of 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50407) : see previous definition of 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50355) : see previous definition of 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS'
-     1>c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND' : macro redefinition
-                 c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50364) : see previous definition of 'D3D10_ERROR_FILE_NOT_FOUND'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(26): error C2146: syntax error : missing ';' before identifier 'world'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(27): error C2146: syntax error : missing ';' before identifier 'view'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(28): error C2146: syntax error : missing ';' before identifier 'projection'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(38): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(45): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(50): error C2719: 'worldMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(50): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(50): error C2719: 'projectionMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(50): error C2511: 'bool ColorShaderClass::Render(ID3D11DeviceContext *,int,DirectX::XMMATRIX,DirectX::XMMATRIX,DirectX::XMMATRIX)' : overloaded member function not found in 'ColorShaderClass'
-                 c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(22) : see declaration of 'ColorShaderClass'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(55): error C2660: 'ColorShaderClass::SetShaderParameters' : function does not take 4 arguments
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(62): error C2352: 'ColorShaderClass::RenderShader' : illegal call of non-static member function
-                 c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(46) : see declaration of 'ColorShaderClass::RenderShader'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(85): error C3861: 'D3DCompileFromFile': identifier not found
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(104): error C3861: 'D3DCompileFromFile': identifier not found
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(263): error C2719: 'worldMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(263): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(263): error C2719: 'projectionMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(263): error C2511: 'bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext *,DirectX::XMMATRIX,DirectX::XMMATRIX,DirectX::XMMATRIX)' : overloaded member function not found in 'ColorShaderClass'
-                 c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(22) : see declaration of 'ColorShaderClass'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(276): error C2597: illegal reference to non-static member 'ColorShaderClass::m_matrixBuffer'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(286): error C2039: 'world' : is not a member of 'ColorShaderClass::MatrixBufferType'
-                 c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(25) : see declaration of 'ColorShaderClass::MatrixBufferType'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(287): error C2039: 'view' : is not a member of 'ColorShaderClass::MatrixBufferType'
-                 c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(25) : see declaration of 'ColorShaderClass::MatrixBufferType'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(288): error C2039: 'projection' : is not a member of 'ColorShaderClass::MatrixBufferType'
-                 c:\users\hillary\desktop\temp\holepunch\colorshaderclass.h(25) : see declaration of 'ColorShaderClass::MatrixBufferType'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(291): error C2597: illegal reference to non-static member 'ColorShaderClass::m_matrixBuffer'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(297): error C2597: illegal reference to non-static member 'ColorShaderClass::m_matrixBuffer'
-     1>c:\users\hillary\desktop\temp\holepunch\colorshaderclass.cpp(297): error C2664: 'void ID3D11DeviceContext::VSSetConstantBuffers(UINT,UINT,ID3D11Buffer *const *)' : cannot convert argument 3 from 'ID3D11Buffer *ColorShaderClass::* ' to 'ID3D11Buffer *const *'
-                 There is no context in which this conversion is possible
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.h(26): error C2146: syntax error : missing ';' before identifier 'world'
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.h(26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.h(27): error C2146: syntax error : missing ';' before identifier 'view'
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.h(28): error C2146: syntax error : missing ';' before identifier 'projection'
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.h(38): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.h(45): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(50): error C2719: 'worldMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(50): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(50): error C2719: 'projectionMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(50): error C2511: 'bool ColorShaderClass::Render(ID3D11DeviceContext *,int,DirectX::XMMATRIX,DirectX::XMMATRIX,DirectX::XMMATRIX)' : overloaded member function not found in 'ColorShaderClass'
+                 c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.h(22) : see declaration of 'ColorShaderClass'
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(65): error C2719: 'worldMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(65): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(65): error C2719: 'projectionMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(85): error C3861: 'D3DCompileFromFile': identifier not found
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(104): error C3861: 'D3DCompileFromFile': identifier not found
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(263): error C2719: 'worldMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(263): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(263): error C2719: 'projectionMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(263): error C2511: 'bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext *,DirectX::XMMATRIX,DirectX::XMMATRIX,DirectX::XMMATRIX)' : overloaded member function not found in 'ColorShaderClass'
+                 c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.h(22) : see declaration of 'ColorShaderClass'
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(300): error C2719: 'worldMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(300): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\colorshaderclass.cpp(300): error C2719: 'projectionMatrix': formal parameter with __declspec(align('16')) won't be aligned
          cameraclass.cpp
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): error C2146: syntax error : missing ';' before identifier 'GetPosition'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27): warning C4183: 'GetPosition': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): error C2146: syntax error : missing ';' before identifier 'GetRotation'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28): warning C4183: 'GetRotation': missing return type; assumed to be a member function returning 'int'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(31): error C2061: syntax error : identifier 'XMMATRIX'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(36): error C2146: syntax error : missing ';' before identifier 'm_viewMatrix'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.cpp(45): error C2556: 'DirectX::XMFLOAT3 CameraClass::GetPosition(void)' : overloaded function differs only by return type from 'int CameraClass::GetPosition(void)'
-                 c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27) : see declaration of 'CameraClass::GetPosition'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.cpp(45): error C2371: 'CameraClass::GetPosition' : redefinition; different basic types
-                 c:\users\hillary\desktop\temp\holepunch\cameraclass.h(27) : see declaration of 'CameraClass::GetPosition'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.cpp(50): error C2556: 'DirectX::XMFLOAT3 CameraClass::GetRotation(void)' : overloaded function differs only by return type from 'int CameraClass::GetRotation(void)'
-                 c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28) : see declaration of 'CameraClass::GetRotation'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.cpp(50): error C2371: 'CameraClass::GetRotation' : redefinition; different basic types
-                 c:\users\hillary\desktop\temp\holepunch\cameraclass.h(28) : see declaration of 'CameraClass::GetRotation'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.cpp(100): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.cpp(100): error C2511: 'void CameraClass::GetViewMatrix(DirectX::XMMATRIX)' : overloaded member function not found in 'CameraClass'
-                 c:\users\hillary\desktop\temp\holepunch\cameraclass.h(18) : see declaration of 'CameraClass'
-     1>c:\users\hillary\desktop\temp\holepunch\cameraclass.cpp(101): error C2065: 'm_viewMatrix' : undeclared identifier
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): error C2146: syntax error : missing ';' before identifier 'GetPosition'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27): warning C4183: 'GetPosition': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): error C2146: syntax error : missing ';' before identifier 'GetRotation'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28): warning C4183: 'GetRotation': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(31): error C2061: syntax error : identifier 'XMMATRIX'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(36): error C2146: syntax error : missing ';' before identifier 'm_viewMatrix'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(36): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.cpp(45): error C2556: 'DirectX::XMFLOAT3 CameraClass::GetPosition(void)' : overloaded function differs only by return type from 'int CameraClass::GetPosition(void)'
+                 c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27) : see declaration of 'CameraClass::GetPosition'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.cpp(45): error C2371: 'CameraClass::GetPosition' : redefinition; different basic types
+                 c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(27) : see declaration of 'CameraClass::GetPosition'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.cpp(50): error C2556: 'DirectX::XMFLOAT3 CameraClass::GetRotation(void)' : overloaded function differs only by return type from 'int CameraClass::GetRotation(void)'
+                 c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28) : see declaration of 'CameraClass::GetRotation'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.cpp(50): error C2371: 'CameraClass::GetRotation' : redefinition; different basic types
+                 c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(28) : see declaration of 'CameraClass::GetRotation'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.cpp(100): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.cpp(100): error C2511: 'void CameraClass::GetViewMatrix(DirectX::XMMATRIX)' : overloaded member function not found in 'CameraClass'
+                 c:\users\josh\desktop\hole-punch\holepunch\cameraclass.h(18) : see declaration of 'CameraClass'
+     1>c:\users\josh\desktop\hole-punch\holepunch\cameraclass.cpp(103): error C2719: 'viewMatrix': formal parameter with __declspec(align('16')) won't be aligned
          Generating Code...
-     1>Done Building Project "C:\Users\Hillary\Desktop\temp\HolePunch\HolePunch.vcxproj" (Build target(s)) -- FAILED.
+     1>c:\users\josh\desktop\hole-punch\holepunch\textureclass.cpp(28): error C4700: uninitialized local variable 'result' used
+     1>Done Building Project "C:\Users\Josh\Desktop\hole-punch\HolePunch\HolePunch.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:23.65
+Time Elapsed 00:00:09.89
