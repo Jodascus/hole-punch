@@ -20,6 +20,8 @@
 
 #include <vector>
 
+using namespace DirectX;
+
 /////////////
 // GLOBALS //
 /////////////

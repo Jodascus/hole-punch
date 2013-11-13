@@ -14,6 +14,7 @@
 #include <DirectXColors.h>
 
 using namespace std;
+using namespace DirectX;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Class name: TextureClass

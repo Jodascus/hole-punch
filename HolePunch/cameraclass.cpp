@@ -3,8 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "cameraclass.h"
 
-using namespace DirectX;
-
 CameraClass::CameraClass()
 {
 	m_positionX = 0.0f;

@@ -3,8 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "textureclass.h"
 
-using namespace DirectX;
-
 TextureClass::TextureClass()
 {
 	m_texture = 0;
@@ -23,8 +21,7 @@ bool TextureClass::Initialize(ID3D11Device* device, WCHAR* filename)
 	HRESULT result;
 
 	// Load the texture in
-	////currently broken
-	//result = D3D11CreateShaderResourceViewFromFile(device, filename, NULL, NULL, &m_texture, NULL);
+	result = D3D11CreateShaderResourceViewFromFile(device, filename, NULL, NULL, &m_texture, NULL);
 	if (FAILED(result))
 	{
 		return false;
