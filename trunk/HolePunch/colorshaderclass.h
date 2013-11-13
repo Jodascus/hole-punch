@@ -14,6 +14,7 @@
 #include <d3d11.h>
 
 using namespace std;
+using namespace DirectX;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Class name: ColorShaderClass

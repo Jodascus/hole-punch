@@ -14,6 +14,7 @@
 #include <DirectXColors.h>
 
 #include <fstream>
+
 using namespace DirectX;
 using namespace std;
 

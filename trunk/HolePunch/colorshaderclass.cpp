@@ -3,8 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "colorshaderclass.h"
 
-using namespace DirectX;
-
 ColorShaderClass::ColorShaderClass()
 {
 	m_vertexShader = 0;
