@@ -19,7 +19,7 @@
 ///////////////////////
 // MY CLASS INCLUDES //
 ///////////////////////
-#include "textureclass.h"
+//#include "textureclass.h"
 
 using namespace std;
 using namespace DirectX;
