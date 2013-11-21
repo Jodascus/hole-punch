@@ -29,7 +29,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	bool result;
 
 	m_FileNames.push_back("../HolePunch/Data/BoxingRing.txt");
-	m_FileNames.push_back("../HolePunch/Data/cube.txt");
+	m_FileNames.push_back("../HolePunch/Data/b_Stand.txt");
 
 	// Create the Direct3D object.
 	m_D3D = new D3DClass;
@@ -57,7 +57,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Camera->SetPosition(0.0f, 0.0f, -10.0f);
 
 	// Create the model object.
-	for (int i = 0; i < m_FileNames.size(); i++)
+	for (int i = 0; i < (int)m_FileNames.size(); i++)
 	{
 		m_Model = new ModelClass;
 		if (!m_Model)
@@ -126,7 +126,7 @@ void GraphicsClass::Shutdown()
 	}
 
 	// Release the model object.
-	for (int i = 0; i < m_List.size(); i++)
+	for (int i = 0; i < (int)m_List.size(); i++)
 	{
 		m_List[i]->Shutdown();
 		delete m_List[i];
@@ -193,9 +193,9 @@ bool GraphicsClass::Render(float rotation)
 
 	// Rotate the world matrix by the rotation value so that the triangle will spin.
 	//D3DXMatrixRotationX(&worldMatrix, rotation);
-	D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 50);
+	D3DXMatrixTranslation(&viewMatrix, 0.0, -10.0, 50);
 
-	for (int i = 0; i < m_List.size(); i++)
+	for (int i = 0; i < (int)m_List.size(); i++)
 	{
 		// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 		m_List[i]->Render(m_D3D->GetDeviceContext());
