@@ -11,7 +11,6 @@
 #include "d3dclass.h"
 #include "cameraclass.h"
 #include "modelclass.h"
-#include "textureshaderclass.h"
 #include "lightshaderclass.h"
 #include "lightclass.h"
 
