@@ -3,11 +3,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "graphicsclass.h"
 
-
 GraphicsClass::GraphicsClass()
 {
 }
-
 
 GraphicsClass::GraphicsClass(const GraphicsClass& other)
 {
@@ -18,19 +16,21 @@ GraphicsClass::GraphicsClass(const GraphicsClass& other)
 	m_Light = 0;
 }
 
-
 GraphicsClass::~GraphicsClass()
 {
 }
-
 
 bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
 
-	m_FileNames.push_back("../HolePunch/Data/BoxingRing.txt");
-	m_FileNames.push_back("../HolePunch/Data/b_Stand.txt");
+	// Store file locations for easier reference
+	char* cstandingBoxer = "../HolePunch/Data/b_Stand.txt";
+	char* cboxingRing = "../HolePunch/Data/BoxingRing.txt";
 
+	m_FileNames.push_back(cstandingBoxer);
+	m_FileNames.push_back(cboxingRing);
+	
 	// Create the Direct3D object.
 	m_D3D = new D3DClass;
 	if (!m_D3D)
@@ -66,7 +66,15 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		}
 
 		// Initialize the model object.
-		result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/seafloor.dds");
+		if(m_FileNames[i] == cstandingBoxer)
+		{
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/boxer.dds");
+		}
+		else if(m_FileNames[i] == cboxingRing)
+		{
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/seafloor.dds");
+		}
+		
 		if (!result)
 		{
 			MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
@@ -74,9 +82,6 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		}
 		m_List.push_back(m_Model);
 	}
-	
-
-	
 
 	// Create the light shader object.
 	m_LightShader = new LightShaderClass;
@@ -106,7 +111,6 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 
 	return true;
 }
-
 
 void GraphicsClass::Shutdown()
 {
@@ -150,12 +154,10 @@ void GraphicsClass::Shutdown()
 	return;
 }
 
-
 bool GraphicsClass::Frame()
 {
 	bool result;
 	static float rotation = 0.0f;
-
 
 	// Update the rotation variable each frame.
 	rotation += (float)D3DX_PI * 0.01f;
@@ -173,12 +175,10 @@ bool GraphicsClass::Frame()
 	return true;
 }
 
-
 bool GraphicsClass::Render(float rotation)
 {
 	D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix;
 	bool result;
-
 
 	// Clear the buffers to begin the scene.
 	m_D3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
@@ -208,7 +208,6 @@ bool GraphicsClass::Render(float rotation)
 			return false;
 		}
 	}
-
 
 	// Present the rendered scene to the screen.
 	m_D3D->EndScene();

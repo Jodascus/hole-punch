@@ -3,7 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "lightshaderclass.h"
 
-
 LightShaderClass::LightShaderClass()
 {
 	m_vertexShader = 0;
@@ -14,16 +13,13 @@ LightShaderClass::LightShaderClass()
 	m_lightBuffer = 0;
 }
 
-
 LightShaderClass::LightShaderClass(const LightShaderClass& other)
 {
 }
 
-
 LightShaderClass::~LightShaderClass()
 {
 }
-
 
 bool LightShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 {
@@ -34,7 +30,6 @@ bool LightShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 	{
 		return false;
 	}
-
 	return true;
 }
 
@@ -64,7 +59,6 @@ bool LightShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount
 
 	return true;
 }
-
 
 bool LightShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
 {
@@ -99,7 +93,6 @@ bool LightShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 		{
 			MessageBox(hwnd, vsFilename, L"Missing Shader File", MB_OK);
 		}
-
 		return false;
 	}
 
@@ -231,10 +224,8 @@ bool LightShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 	{
 		return false;
 	}
-
 	return true;
 }
-
 
 void LightShaderClass::ShutdownShader()
 {
@@ -279,17 +270,14 @@ void LightShaderClass::ShutdownShader()
 		m_vertexShader->Release();
 		m_vertexShader = 0;
 	}
-
 	return;
 }
-
 
 void LightShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hwnd, WCHAR* shaderFilename)
 {
 	char* compileErrors;
 	unsigned long bufferSize, i;
 	ofstream fout;
-
 
 	// Get a pointer to the error message text buffer.
 	compileErrors = (char*)(errorMessage->GetBufferPointer());
@@ -388,7 +376,6 @@ bool LightShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, D
 
 	return true;
 }
-
 
 void LightShaderClass::RenderShader(ID3D11DeviceContext* deviceContext, int indexCount)
 {
