@@ -3,7 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "d3dclass.h"
 
-
 D3DClass::D3DClass()
 {
 	m_swapChain = 0;
@@ -16,16 +15,13 @@ D3DClass::D3DClass()
 	m_rasterState = 0;
 }
 
-
 D3DClass::D3DClass(const D3DClass& other)
 {
 }
 
-
 D3DClass::~D3DClass()
 {
 }
-
 
 bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hwnd, bool fullscreen, 
 						  float screenDepth, float screenNear)
@@ -47,7 +43,6 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
 	D3D11_RASTERIZER_DESC rasterDesc;
 	D3D11_VIEWPORT viewport;
 	float fieldOfView, screenAspect;
-
 
 	// Store the vsync setting.
 	m_vsync_enabled = vsync;
@@ -349,7 +344,6 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hw
     return true;
 }
 
-
 void D3DClass::Shutdown()
 {
 	// Before shutting down set to windowed mode or when you release the swap chain it will throw an exception.
@@ -409,11 +403,9 @@ void D3DClass::Shutdown()
 	return;
 }
 
-
 void D3DClass::BeginScene(float red, float green, float blue, float alpha)
 {
 	float color[4];
-
 
 	// Setup the color to clear the buffer to.
 	color[0] = red;
@@ -429,7 +421,6 @@ void D3DClass::BeginScene(float red, float green, float blue, float alpha)
 
 	return;
 }
-
 
 void D3DClass::EndScene()
 {
@@ -448,18 +439,15 @@ void D3DClass::EndScene()
 	return;
 }
 
-
 ID3D11Device* D3DClass::GetDevice()
 {
 	return m_device;
 }
 
-
 ID3D11DeviceContext* D3DClass::GetDeviceContext()
 {
 	return m_deviceContext;
 }
-
 
 void D3DClass::GetProjectionMatrix(D3DXMATRIX& projectionMatrix)
 {
@@ -467,20 +455,17 @@ void D3DClass::GetProjectionMatrix(D3DXMATRIX& projectionMatrix)
 	return;
 }
 
-
 void D3DClass::GetWorldMatrix(D3DXMATRIX& worldMatrix)
 {
 	worldMatrix = m_worldMatrix;
 	return;
 }
 
-
 void D3DClass::GetOrthoMatrix(D3DXMATRIX& orthoMatrix)
 {
 	orthoMatrix = m_orthoMatrix;
 	return;
 }
-
 
 void D3DClass::GetVideoCardInfo(char* cardName, int& memory)
 {

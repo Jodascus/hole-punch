@@ -3,7 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "colorshaderclass.h"
 
-
 ColorShaderClass::ColorShaderClass()
 {
 	m_vertexShader = 0;
@@ -12,21 +11,17 @@ ColorShaderClass::ColorShaderClass()
 	m_matrixBuffer = 0;
 }
 
-
 ColorShaderClass::ColorShaderClass(const ColorShaderClass& other)
 {
 }
-
 
 ColorShaderClass::~ColorShaderClass()
 {
 }
 
-
 bool ColorShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 {
 	bool result;
-
 
 	// Initialize the vertex and pixel shaders.
 	result = InitializeShader(device, hwnd, L"../HolePunch/color.vs", L"../HolePunch/color.ps");
@@ -38,7 +33,6 @@ bool ColorShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 	return true;
 }
 
-
 void ColorShaderClass::Shutdown()
 {
 	// Shutdown the vertex and pixel shaders as well as the related objects.
@@ -47,12 +41,10 @@ void ColorShaderClass::Shutdown()
 	return;
 }
 
-
 bool ColorShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix, 
 							  D3DXMATRIX projectionMatrix)
 {
 	bool result;
-
 
 	// Set the shader parameters that it will use for rendering.
 	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix);
@@ -66,7 +58,6 @@ bool ColorShaderClass::Render(ID3D11DeviceContext* deviceContext, int indexCount
 
 	return true;
 }
-
 
 bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* vsFilename, WCHAR* psFilename)
 {
@@ -190,7 +181,6 @@ bool ColorShaderClass::InitializeShader(ID3D11Device* device, HWND hwnd, WCHAR* 
 	return true;
 }
 
-
 void ColorShaderClass::ShutdownShader()
 {
 	// Release the matrix constant buffer.
@@ -223,7 +213,6 @@ void ColorShaderClass::ShutdownShader()
 
 	return;
 }
-
 
 void ColorShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND hwnd, WCHAR* shaderFilename)
 {
@@ -259,7 +248,6 @@ void ColorShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage, HWND h
 
 	return;
 }
-
 
 bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, D3DXMATRIX worldMatrix, D3DXMATRIX viewMatrix,
 										   D3DXMATRIX projectionMatrix)
@@ -301,7 +289,6 @@ bool ColorShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, D
 
 	return true;
 }
-
 
 void ColorShaderClass::RenderShader(ID3D11DeviceContext* deviceContext, int indexCount)
 {
