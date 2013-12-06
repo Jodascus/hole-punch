@@ -19,7 +19,6 @@ ModelClass::~ModelClass()
 {
 }
 
-
 bool ModelClass::Initialize(ID3D11Device* device, char* modelFilename, WCHAR* textureFilename)
 {
 	bool result;
@@ -44,10 +43,8 @@ bool ModelClass::Initialize(ID3D11Device* device, char* modelFilename, WCHAR* te
 	{
 		return false;
 	}
-
 	return true;
 }
-
 
 void ModelClass::Shutdown()
 {
@@ -63,7 +60,6 @@ void ModelClass::Shutdown()
 	return;
 }
 
-
 void ModelClass::Render(ID3D11DeviceContext* deviceContext)
 {
 	// Put the vertex and index buffers on the graphics pipeline to prepare them for drawing.
@@ -71,7 +67,6 @@ void ModelClass::Render(ID3D11DeviceContext* deviceContext)
 
 	return;
 }
-
 
 int ModelClass::GetIndexCount()
 {
@@ -82,7 +77,6 @@ ID3D11ShaderResourceView* ModelClass::GetTexture()
 {
 	return m_Texture->GetTexture();
 }
-
 
 bool ModelClass::InitializeBuffers(ID3D11Device* device)
 {
@@ -193,7 +187,6 @@ void ModelClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 	unsigned int stride;
 	unsigned int offset;
 
-
 	// Set vertex buffer stride and offset.
 	stride = sizeof(VertexType); 
 	offset = 0;
@@ -249,7 +242,6 @@ bool ModelClass::LoadModel(char* filename)
 	ifstream fin;
 	char input;
 	int i;
-
 
 	// Open the model file.
 	fin.open(filename);
@@ -310,6 +302,5 @@ void ModelClass::ReleaseModel()
 		delete[] m_model;
 		m_model = 0;
 	}
-
 	return;
 }

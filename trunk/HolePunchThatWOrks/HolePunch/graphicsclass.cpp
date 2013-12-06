@@ -3,6 +3,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "graphicsclass.h"
 
+//store model file locations for easier reference
+char* cstandingBoxer = "../HolePunch/Data/b_Stand.txt";
+char* cpunchingBoxer = "../HolePunch/Data/b_Punch.txt";
+char* cboxingRing = "../HolePunch/Data/BoxingRing.txt";
+
 GraphicsClass::GraphicsClass()
 {
 }
@@ -24,11 +29,8 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
 
-	// Store file locations for easier reference
-	char* cstandingBoxer = "../HolePunch/Data/b_Stand.txt";
-	char* cboxingRing = "../HolePunch/Data/BoxingRing.txt";
-
 	m_FileNames.push_back(cstandingBoxer);
+	m_FileNames.push_back(cpunchingBoxer);
 	m_FileNames.push_back(cboxingRing);
 	
 	// Create the Direct3D object.
@@ -69,6 +71,10 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		if(m_FileNames[i] == cstandingBoxer)
 		{
 			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/test.dds");
+		}
+		if(m_FileNames[i] == cpunchingBoxer)
+		{
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Punch_tex.dds");
 		}
 		else if(m_FileNames[i] == cboxingRing)
 		{
@@ -192,10 +198,22 @@ bool GraphicsClass::Render(float rotation)
 	m_D3D->GetWorldMatrix(worldMatrix);
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
-	D3DXMatrixTranslation(&viewMatrix, 0.0, -10.0, 50);
-
 	for (int i = 0; i < (int)m_List.size(); i++)
 	{
+		//translate positions based on object drawn
+		if(m_FileNames[i] == cstandingBoxer)
+		{
+			D3DXMatrixTranslation(&viewMatrix, 0.0, 10.0, 50);
+		}
+		else if(m_FileNames[i] == cpunchingBoxer)
+		{
+			D3DXMatrixTranslation(&viewMatrix, 5.0, 5.0, 50);
+		}
+		else if(m_FileNames[i] == cboxingRing)
+		{
+			D3DXMatrixTranslation(&viewMatrix, 0.0, -10.0, 50);
+		}
+
 		// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 		m_List[i]->Render(m_D3D->GetDeviceContext());
 
