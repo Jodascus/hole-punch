@@ -24,14 +24,9 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
 
-//<<<<<<< .mine
-	m_FileNames.push_back("../HolePunch/Data/b_Stand.txt");
-	m_FileNames.push_back("../HolePunch/Data/BoxingRing.txt");
-//=======
 	// Store file locations for easier reference
 	char* cstandingBoxer = "../HolePunch/Data/b_Stand.txt";
 	char* cboxingRing = "../HolePunch/Data/BoxingRing.txt";
-//>>>>>>> .r51
 
 	m_FileNames.push_back(cstandingBoxer);
 	m_FileNames.push_back(cboxingRing);
@@ -71,19 +66,15 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		}
 
 		// Initialize the model object.
-//<<<<<<< .mine
-		result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Stand_tex.dds");
-/*=======
 		if(m_FileNames[i] == cstandingBoxer)
 		{
-			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/boxer.dds");
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Stand_tex.dds");
 		}
 		else if(m_FileNames[i] == cboxingRing)
 		{
-			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/seafloor.dds");
-		}*/
-		
-//>>>>>>> .r51
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/test.dds");
+		}
+
 		if (!result)
 		{
 			MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
@@ -226,7 +217,6 @@ bool GraphicsClass::Render(float rotation)
 			return false;
 		}
 	}
-
 
 	// Present the rendered scene to the screen.
 	m_D3D->EndScene();
