@@ -2,7 +2,6 @@
 // Filename: light.ps
 ////////////////////////////////////////////////////////////////////////////////
 
-
 /////////////
 // GLOBALS //
 /////////////
@@ -17,7 +16,6 @@ cbuffer LightBuffer
     float padding;
 };
 
-
 //////////////
 // TYPEDEFS //
 //////////////
@@ -28,7 +26,6 @@ struct PixelInputType
     float3 normal : NORMAL;
 };
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // Pixel Shader
 ////////////////////////////////////////////////////////////////////////////////
@@ -38,7 +35,6 @@ float4 LightPixelShader(PixelInputType input) : SV_TARGET
     float3 lightDir;
     float lightIntensity;
     float4 color;
-
 
     // Sample the pixel color from the texture using the sampler at this texture coordinate location.
     textureColor = shaderTexture.Sample(SampleType, input.tex);
