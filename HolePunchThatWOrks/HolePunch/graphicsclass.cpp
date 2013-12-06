@@ -24,9 +24,14 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
 
+//<<<<<<< .mine
+	m_FileNames.push_back("../HolePunch/Data/b_Stand.txt");
+	m_FileNames.push_back("../HolePunch/Data/BoxingRing.txt");
+//=======
 	// Store file locations for easier reference
 	char* cstandingBoxer = "../HolePunch/Data/b_Stand.txt";
 	char* cboxingRing = "../HolePunch/Data/BoxingRing.txt";
+//>>>>>>> .r51
 
 	m_FileNames.push_back(cstandingBoxer);
 	m_FileNames.push_back(cboxingRing);
@@ -66,6 +71,9 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		}
 
 		// Initialize the model object.
+//<<<<<<< .mine
+		result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Stand_tex.dds");
+/*=======
 		if(m_FileNames[i] == cstandingBoxer)
 		{
 			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/boxer.dds");
@@ -73,8 +81,9 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		else if(m_FileNames[i] == cboxingRing)
 		{
 			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/seafloor.dds");
-		}
+		}*/
 		
+//>>>>>>> .r51
 		if (!result)
 		{
 			MessageBox(hwnd, L"Could not initialize the model object.", L"Error", MB_OK);
@@ -105,9 +114,10 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		return false;
 	}
 
-	// Initialize the light object.
+	//intialize light variables
+	m_Light->SetAmbientColor(0.15f, 0.15f, 0.15f, .5f);
 	m_Light->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
-	m_Light->SetDirection(0.0f, 0.0f, 1.0f);
+	m_Light->SetDirection(0.0f, -1.0f, 0.0f);
 
 	return true;
 }
@@ -195,6 +205,14 @@ bool GraphicsClass::Render(float rotation)
 	//D3DXMatrixRotationX(&worldMatrix, rotation);
 	D3DXMatrixTranslation(&viewMatrix, 0.0, -10.0, 50);
 
+	m_Model->Render(m_D3D->GetDeviceContext());
+
+	result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
+			m_Model->GetTexture(), m_Light->GetDirection(), m_Light->GetAmbientColor() , m_Light->GetDiffuseColor());
+		if (!result)
+		{
+			return false;
+		}
 	for (int i = 0; i < (int)m_List.size(); i++)
 	{
 		// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
@@ -202,12 +220,13 @@ bool GraphicsClass::Render(float rotation)
 
 		// Render the model using the light shader.
 		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-			m_List[i]->GetTexture(), m_Light->GetDirection(), m_Light->GetDiffuseColor());
+			m_List[i]->GetTexture(), m_Light->GetDirection(), m_Light->GetAmbientColor() , m_Light->GetDiffuseColor());
 		if (!result)
 		{
 			return false;
 		}
 	}
+
 
 	// Present the rendered scene to the screen.
 	m_D3D->EndScene();
