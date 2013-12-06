@@ -68,7 +68,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		// Initialize the model object.
 		if(m_FileNames[i] == cstandingBoxer)
 		{
-			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Stand_tex.dds");
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/test.dds");
 		}
 		else if(m_FileNames[i] == cboxingRing)
 		{
@@ -192,18 +192,8 @@ bool GraphicsClass::Render(float rotation)
 	m_D3D->GetWorldMatrix(worldMatrix);
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
-	// Rotate the world matrix by the rotation value so that the triangle will spin.
-	//D3DXMatrixRotationX(&worldMatrix, rotation);
 	D3DXMatrixTranslation(&viewMatrix, 0.0, -10.0, 50);
 
-	m_Model->Render(m_D3D->GetDeviceContext());
-
-	result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-			m_Model->GetTexture(), m_Light->GetDirection(), m_Light->GetAmbientColor() , m_Light->GetDiffuseColor());
-		if (!result)
-		{
-			return false;
-		}
 	for (int i = 0; i < (int)m_List.size(); i++)
 	{
 		// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
