@@ -15,6 +15,15 @@ LightClass::~LightClass()
 {
 }
 
+//<<<<<<< .mine
+void LightClass::SetAmbientColor(float red, float green, float blue, float alpha)
+{
+	m_ambientColor = D3DXVECTOR4(red, green, blue, alpha);
+	return;
+}
+
+//=======
+//>>>>>>> .r51
 void LightClass::SetDiffuseColor(float red, float green, float blue, float alpha)
 {
 	m_diffuseColor = D3DXVECTOR4(red, green, blue, alpha);
@@ -27,6 +36,14 @@ void LightClass::SetDirection(float x, float y, float z)
 	return;
 }
 
+//<<<<<<< .mine
+D3DXVECTOR4 LightClass::GetAmbientColor()
+{
+	return m_ambientColor;
+}
+
+//=======
+//>>>>>>> .r51
 D3DXVECTOR4 LightClass::GetDiffuseColor()
 {
 	return m_diffuseColor;
