@@ -72,27 +72,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Boxer.cpp" />
     <ClCompile Include="cameraclass.cpp" />
     <ClCompile Include="colorshaderclass.cpp" />
     <ClCompile Include="d3dclass.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="graphicsclass.cpp" />
     <ClCompile Include="inputclass.cpp" />
     <ClCompile Include="lightclass.cpp" />
     <ClCompile Include="lightshaderclass.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="modelclass.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RandomNG.cpp" />
     <ClCompile Include="systemclass.cpp" />
     <ClCompile Include="textureclass.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Boxer.h" />
     <ClInclude Include="cameraclass.h" />
     <ClInclude Include="colorshaderclass.h" />
     <ClInclude Include="d3dclass.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="graphicsclass.h" />
     <ClInclude Include="inputclass.h" />
     <ClInclude Include="lightclass.h" />
     <ClInclude Include="lightshaderclass.h" />
     <ClInclude Include="modelclass.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="RandomNG.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="systemclass.h" />
     <ClInclude Include="textureclass.h" />

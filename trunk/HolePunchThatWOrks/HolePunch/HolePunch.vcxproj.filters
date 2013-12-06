@@ -51,6 +51,18 @@
     <ClCompile Include="lightclass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Boxer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RandomNG.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphicsclass.h">
@@ -84,6 +96,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lightclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Boxer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomNG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
