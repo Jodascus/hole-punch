@@ -3,7 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "modelclass.h"
 
-
 ModelClass::ModelClass()
 {
 	m_vertexBuffer = 0;
@@ -12,11 +11,9 @@ ModelClass::ModelClass()
 	m_model = 0;
 }
 
-
 ModelClass::ModelClass(const ModelClass& other)
 {
 }
-
 
 ModelClass::~ModelClass()
 {
@@ -216,7 +213,6 @@ void ModelClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 bool ModelClass::LoadTexture(ID3D11Device* device, WCHAR* filename)
 {
 	bool result;
-
 
 	// Create the texture object.
 	m_Texture = new TextureClass;
