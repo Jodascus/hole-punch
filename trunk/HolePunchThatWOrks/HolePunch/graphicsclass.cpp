@@ -35,6 +35,10 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
 
+	gamestate = START;
+	stance = IDLE;
+	dodge = STANDING;
+
 	m_FileNames.push_back(cstandingBoxer);
 	m_FileNames.push_back(cpunchingBoxer);
 	m_FileNames.push_back(cboxingRing);

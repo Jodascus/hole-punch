@@ -40,10 +40,13 @@ public:
 	void Shutdown();
 	bool Frame();
 
-public:
 	enum GAMESTATE {START, FIGHT, WIN, LOSE, CREDITS};//Current state of the game
 	enum STANCE {IDLE, TELL, PUNCH};//used to determine which model needs to be displayed
 	enum DODGE { STANDING, LEFT, RIGHT };//Camera position for the player. gloves don't need to move with it
+
+	GAMESTATE gamestate;
+	STANCE stance;
+	DODGE dodge;
 
 private:
 	bool Render(float);
