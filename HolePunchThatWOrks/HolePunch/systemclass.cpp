@@ -60,6 +60,7 @@ bool SystemClass::Initialize()
 	
 	player = new Player();
 	enemy = new Enemy(player);
+	gamestate = START;
 
 	time(&prevTime);
 
@@ -69,6 +70,9 @@ bool SystemClass::Initialize()
 
 void SystemClass::Shutdown()
 {
+	delete player;
+	delete enemy;
+
 	// Release the graphics object.
 	if(m_Graphics)
 	{
@@ -141,25 +145,67 @@ bool SystemClass::Frame()//To be used for update functions
 	if (m_Input->IsKeyDown('a'))
 	{
 		player->Dodge(LEFT);
+		//Poke the graphics class here
 	}
 	
 	if (m_Input->IsKeyDown('d'))
 	{
 		player->Dodge(RIGHT);
+		//Poke the graphics class here
 	}
 
 	if (!m_Input->IsKeyDown('a') && !m_Input->IsKeyDown('d'))
 	{
 		player->Dodge(STANDING);
+		//Poke the graphics class here
 	}
 
-	
-	enemy->Update(2.0, dTime);//Enemy updates
+	if (m_Input->IsKeyDown(VK_SPACE))
+	{
+		player->Punch(enemy);
+		//Poke the graphics class here
+	}
+
+	enemy->Update(15.0, dTime);//Enemy updates
 	
 	// Check if the user pressed escape and wants to exit the application.
 	if(m_Input->IsKeyDown(VK_ESCAPE))
 	{
 		return false;
+	}
+
+	if (m_Input->IsKeyDown(VK_RETURN))
+	{
+		switch (gamestate)
+		{
+		case START:
+			gamestate = FIGHT;
+			//poke graphics
+			break;
+		case FIGHT:
+			break;
+		case WIN:
+			gamestate = FIGHT;
+			enemy->Regenerate();
+			break;
+		case LOSE:
+			gamestate = START;
+			break;
+		default:
+			break;
+		}
+	}
+
+	if (enemy->GetHealth() <= 0)
+	{
+		gamestate = WIN;
+		//Poke graphics
+	}
+
+	if (player->GetHealth() <= 0)
+	{
+		gamestate = LOSE;
+		//Poke graphics
 	}
 
 	// Do the frame processing for the graphics object.

@@ -54,6 +54,7 @@ private:
 	HINSTANCE m_hinstance;
 	HWND m_hwnd;
 
+	GAMESTATE gamestate;
 	InputClass* m_Input;
 	GraphicsClass* m_Graphics;
 };

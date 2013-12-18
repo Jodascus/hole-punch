@@ -8,6 +8,7 @@ public:
 	Enemy(int h, int punchF, float fakeoutC, float tellT, int t, Boxer* e);
 	void Update(float, float);
 	void Init();
+	void Regenerate();
 
 	enum MOOD {ANGRY, COCKY, NEUTRAL};//used to simulate a fighter getting mad or dropping their guard
 	enum STANCE {IDLE, TELL, PUNCH};//used to determine which model needs to be displayed
@@ -16,6 +17,9 @@ private:
 	STANCE stance;//Enemy's current stance
 	float timePassed;//time elapsed since last punch was thrown
 	time_t prevPunchT;//time value for last punch
+	time_t tellStartT;//starting time for the tell
+	bool willPunch;//will the boxer punch
+	float fTellTime;//Final tell time after calculations
 
 	int punchFrequency;//determines how often the AI will possibly throw a punch
 	float fakeoutChance;//value between 0 and .25 that determines if the enemy performs a fakeout
@@ -27,7 +31,7 @@ private:
 	Boxer* player;//The player
 	
 	void DetermineMood();//Figures out if the AI should be getting angry, cocky, or neutral
-	void DeterminePunch(float fc, float tt, float dt);//Figures out if the AI will throw a punch or fakeout the player
-	void Tell(float, bool, float);//Times out the tell pose which warns the player to dodge before they get punched
+	void DeterminePunch(float fc);//Figures out if the AI will throw a punch or fakeout the player
+	void Tell();//Times out the tell pose which warns the player to dodge before they get punched
 	bool Punch(Boxer*) override;//returns whether or not the player was punched successfully and damages the player
 };
