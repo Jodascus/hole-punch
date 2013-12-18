@@ -315,6 +315,7 @@ bool GraphicsClass::Render(float rotation)
 		{
 			D3DXMatrixTranslation(&viewMatrix, -5.0, -5.0, 20);
 		}
+
 		if(m_FileNames[i] == cRightGlove)
 		{
 			D3DXMatrixTranslation(&viewMatrix, 1.0, -5.0, 20);
@@ -333,17 +334,17 @@ bool GraphicsClass::Render(float rotation)
 		// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 		m_List[i]->Render(m_D3D->GetDeviceContext());
 
+		// Store texture to prevent multiple calls
+		ID3D11ShaderResourceView* tex = m_List[i]->GetTexture();
+
 		// Render the model using the light shader.
-		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-			m_List[i]->GetTexture(), diffuseColor, lightPosition);
+		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, diffuseColor, lightPosition);
 
 		// Render the model using the glow shader if applicable
-		if(m_FileNames[i] == cboxingRing){
-
-			//result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
-			//		      m_HorizontalBlurTexture->GetShaderResourceView(), screenSizeY);
-			result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
-				m_List[i]->GetTexture(), 5.0f);
+		if(m_FileNames[i] == cLeftGlove || m_FileNames[i] == cRightGlove){
+			//result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempHeight);
+			//result = m_HorizontalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempWidth);
+			result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, 5.0f);
 		}			
 
 		if (!result)
