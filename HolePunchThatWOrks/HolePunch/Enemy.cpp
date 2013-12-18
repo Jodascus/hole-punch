@@ -5,11 +5,11 @@ Enemy::~Enemy()
 	delete player;
 }
 
-Enemy::Enemy() : Boxer()
+Enemy::Enemy(Boxer* e) : Boxer()
 {
 	rng = new RandomNG();
 	rng->Init();
-	
+	player = e;
 	punchFrequency = rng->RandomInt(1,10);
 	fakeoutChance = rng->RandomInt(1, 10);
 	tellTime = rng->RandomInt(1, 10);

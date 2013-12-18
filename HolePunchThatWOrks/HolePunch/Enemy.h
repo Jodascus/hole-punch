@@ -4,7 +4,7 @@ class Enemy : public Boxer
 {
 public:
 	~Enemy();
-	Enemy();
+	Enemy(Boxer* e);
 	Enemy(int h, int punchF, float fakeoutC, float tellT, int t, Boxer* e);
 	void Update(float, float);
 	void Init();
