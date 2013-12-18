@@ -4,9 +4,12 @@
 #include "graphicsclass.h"
 
 //store model file locations for easier reference
-char* cstandingBoxer = "../HolePunch/Data/b_Stand.txt";
+char* cidleBoxer = "../HolePunch/Data/b_Idle.txt";
 char* cpunchingBoxer = "../HolePunch/Data/b_Punch.txt";
+char* ctellingBoxer = "../HolePunch/Data/b_Tell.txt";
 char* cboxingRing = "../HolePunch/Data/BoxingRing.txt";
+char* cLeftGlove = "../HolePunch/Data/g_Left.txt";
+char* cRightGlove = "../HolePunch/Data/g_Right.txt";
 
 GraphicsClass::GraphicsClass()
 {
@@ -35,13 +38,12 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
 
-	gamestate = START;
-	stance = IDLE;
-	dodge = STANDING;
-
-	m_FileNames.push_back(cstandingBoxer);
+	m_FileNames.push_back(cidleBoxer);
 	m_FileNames.push_back(cpunchingBoxer);
+	m_FileNames.push_back(ctellingBoxer);
 	m_FileNames.push_back(cboxingRing);
+	m_FileNames.push_back(cLeftGlove);
+	m_FileNames.push_back(cRightGlove);
 	
 	// Create the Direct3D object.
 	m_D3D = new D3DClass;
@@ -49,9 +51,6 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	{
 		return false;
 	}
-
-	//Grabbing width and height to give to glow rendering
-	tempWidth = screenWidth, tempHeight = screenHeight;
 
 	// Initialize the Direct3D object.
 	result = m_D3D->Initialize(screenWidth, screenHeight, VSYNC_ENABLED, hwnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
@@ -81,17 +80,29 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		}
 
 		// Initialize the model object.
-		if(m_FileNames[i] == cstandingBoxer)
+		if(m_FileNames[i] == cidleBoxer)
 		{
-			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/test.dds");
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Idle_Text.dds");
+		}
+		else if(m_FileNames[i] == ctellingBoxer)
+		{
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Tell_Text.dds");
 		}
 		else if(m_FileNames[i] == cpunchingBoxer)
 		{
-			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Windup_tex.dds");
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Punch_Text.dds");
 		}
 		else if(m_FileNames[i] == cboxingRing)
 		{
 			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/test.dds");
+		}
+		else if(m_FileNames[i] == cLeftGlove)
+		{
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/g_Left_Tex.dds");
+		}
+		else if(m_FileNames[i] == cRightGlove)
+		{
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/g_Left_Tex.dds");
 		}
 
 		if (!result)
@@ -161,36 +172,6 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Light4->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
 	m_Light4->SetPosition(3.0f, 1.0f, -3.0f);
 
-	// Create the horizontal blur shader object.
-	m_HorizontalBlurShader = new HorizontalBlurShaderClass;
-	if(!m_HorizontalBlurShader)
-	{
-		return false;
-	}
-
-	// Initialize the horizontal blur shader object.
-	result = m_HorizontalBlurShader->Initialize(m_D3D->GetDevice(), hwnd);
-	if(!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the horizontal blur shader object.", L"Error", MB_OK);
-		return false;
-	}
-
-	// Create the vertical blur shader object.
-	m_VerticalBlurShader = new VerticalBlurShaderClass;
-	if(!m_VerticalBlurShader)
-	{
-		return false;
-	}
-
-	// Initialize the vertical blur shader object.
-	result = m_VerticalBlurShader->Initialize(m_D3D->GetDevice(), hwnd);
-	if(!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the vertical blur shader object.", L"Error", MB_OK);
-		return false;
-	}
-
 	// Create the glow shader object.
 	m_GlowShader = new GlowShaderClass;
 	if(!m_GlowShader)
@@ -216,22 +197,6 @@ void GraphicsClass::Shutdown()
 		m_GlowShader->Shutdown();
 		delete m_GlowShader;
 		m_GlowShader = 0;
-	}
-
-	// Release the vertical blur shader object.
-	if(m_VerticalBlurShader)
-	{
-		m_VerticalBlurShader->Shutdown();
-		delete m_VerticalBlurShader;
-		m_VerticalBlurShader = 0;
-	}
-
-	// Release the horizontal blur shader object.
-	if(m_HorizontalBlurShader)
-	{
-		m_HorizontalBlurShader->Shutdown();
-		delete m_HorizontalBlurShader;
-		m_HorizontalBlurShader = 0;
 	}
 
 	// Release the light objects.
@@ -346,23 +311,27 @@ bool GraphicsClass::Render(float rotation)
 	for (int i = 0; i < (int)m_List.size(); i++)
 	{
 		//translate positions based on object drawn
-		if(m_FileNames[i] == cstandingBoxer)
+		if(m_FileNames[i] == cLeftGlove)
 		{
-			D3DXMatrixTranslation(&viewMatrix, 0.0, 10.0, 50);
+			D3DXMatrixTranslation(&viewMatrix, -5.0, -5.0, 20);
 		}
-		else if(m_FileNames[i] == cpunchingBoxer)
+		if(m_FileNames[i] == cRightGlove)
 		{
-			D3DXMatrixTranslation(&viewMatrix, 5.0, 5.0, 50);
+			D3DXMatrixTranslation(&viewMatrix, 1.0, -5.0, 20);
 		}
+
+		if(m_FileNames[i] == cidleBoxer)
+		{
+			D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
+		}
+		
 		else if(m_FileNames[i] == cboxingRing)
 		{
-			D3DXMatrixTranslation(&viewMatrix, 0.0, -10.0, 50);
+			D3DXMatrixTranslation(&viewMatrix, 0.0, -8, 25);
 		}
 
 		// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 		m_List[i]->Render(m_D3D->GetDeviceContext());
-
-		ID3D11ShaderResourceView* tex = m_List[i]->GetTexture();
 
 		// Render the model using the light shader.
 		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
@@ -371,13 +340,8 @@ bool GraphicsClass::Render(float rotation)
 		// Render the model using the glow shader if applicable
 		if(m_FileNames[i] == cboxingRing){
 
-
-			result = m_HorizontalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
-					      m_List[i]->GetTexture(), tempHeight);
-
-			result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
-					      m_List[i]->GetTexture(), tempWidth);
-
+			//result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
+			//		      m_HorizontalBlurTexture->GetShaderResourceView(), screenSizeY);
 			result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
 				m_List[i]->GetTexture(), 5.0f);
 		}			
