@@ -44,6 +44,11 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_FileNames.push_back(cboxingRing);
 	m_FileNames.push_back(cLeftGlove);
 	m_FileNames.push_back(cRightGlove);
+
+	gamestate = FIGHT;
+	stance = IDLE;
+	dodge = STANDING;
+
 	
 	// Create the Direct3D object.
 	m_D3D = new D3DClass;
@@ -172,36 +177,6 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Light4->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
 	m_Light4->SetPosition(3.0f, 1.0f, -3.0f);
 
-	// Create the horizontal blur shader object.
-	m_HorizontalBlurShader = new HorizontalBlurShaderClass;
-	if(!m_HorizontalBlurShader)
-	{
-		return false;
-	}
-
-	// Initialize the horizontal blur shader object.
-	result = m_HorizontalBlurShader->Initialize(m_D3D->GetDevice(), hwnd);
-	if(!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the horizontal blur shader object.", L"Error", MB_OK);
-		return false;
-	}
-
-	// Create the vertical blur shader object.
-	m_VerticalBlurShader = new VerticalBlurShaderClass;
-	if(!m_VerticalBlurShader)
-	{
-		return false;
-	}
-
-	// Initialize the vertical blur shader object.
-	result = m_VerticalBlurShader->Initialize(m_D3D->GetDevice(), hwnd);
-	if(!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the vertical blur shader object.", L"Error", MB_OK);
-		return false;
-	}
-
 	// Create the glow shader object.
 	m_GlowShader = new GlowShaderClass;
 	if(!m_GlowShader)
@@ -293,11 +268,23 @@ bool GraphicsClass::Frame()
 	static float rotation = 0.0f;
 
 	// Update the rotation variable each frame.
-	rotation += (float)D3DX_PI * 0.01f;
-	if (rotation > 360.0f)
+	switch(dodge)
 	{
-		rotation -= 360.0f;
+		case STANDING:
+			break;
+		case LEFT:
+			rotation = 0;
+			break;
+		case RIGHT:
+			rotation = 0;
+			break;
 	}
+
+	if (rotation < 50)
+			{
+				rotation += (float)D3DX_PI * 0.1f;
+			}
+	
 
 	// Render the graphics scene.
 	result = Render(rotation);
@@ -314,6 +301,8 @@ bool GraphicsClass::Render(float rotation)
 	D3DXVECTOR4 diffuseColor[4];
 	D3DXVECTOR4 lightPosition[4];
 	bool result;
+	int bIndex = 0;
+	int index = 0;
 
 	// Create the diffuse color array from the four light colors.
 	diffuseColor[0] = m_Light1->GetDiffuseColor();
@@ -338,43 +327,79 @@ bool GraphicsClass::Render(float rotation)
 	m_D3D->GetWorldMatrix(worldMatrix);
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 
+	switch(stance)
+	{
+		case IDLE:
+			D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
+			bIndex = 0;
+			break;
+		case TELL:
+			D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
+			bIndex = 1;
+			break;
+		case PUNCH:
+			D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
+			bIndex = 2;
+			break;
+	}
+
+	switch(dodge)
+	{
+		case STANDING:
+			D3DXMatrixTranslation(&worldMatrix, 0.0, 0.0, 0.0);
+			break;
+		case LEFT:
+			D3DXMatrixTranslation(&worldMatrix, rotation, 0.0, -rotation);
+			break;
+		case RIGHT:
+			D3DXMatrixTranslation(&worldMatrix, -rotation, 0.0, -rotation);
+			break;
+	}
+
+	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
+
+	m_List[bIndex]->Render(m_D3D->GetDeviceContext());
+
+	// Render the model using the light shader.
+	result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[bIndex]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
+		m_List[bIndex]->GetTexture(), diffuseColor, lightPosition);
+
+
 	for (int i = 0; i < (int)m_List.size(); i++)
 	{
 		//translate positions based on object drawn
 		if(m_FileNames[i] == cLeftGlove)
 		{
 			D3DXMatrixTranslation(&viewMatrix, -5.0, -5.0, 20);
+			index = 4;
 		}
-
-		else if(m_FileNames[i] == cRightGlove)
+		if(m_FileNames[i] == cRightGlove)
 		{
 			D3DXMatrixTranslation(&viewMatrix, 1.0, -5.0, 20);
-		}
-
-		else if(m_FileNames[i] == cidleBoxer)
-		{
-			D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
+			index = 5;
 		}
 		
 		else if(m_FileNames[i] == cboxingRing)
 		{
 			D3DXMatrixTranslation(&viewMatrix, 0.0, -8, 25);
+			index = 3;
 		}
 
+		
 		// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
-		m_List[i]->Render(m_D3D->GetDeviceContext());
-
-		// Store texture to prevent multiple calls
-		ID3D11ShaderResourceView* tex = m_List[i]->GetTexture();
+		m_List[index]->Render(m_D3D->GetDeviceContext());
 
 		// Render the model using the light shader.
-		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, diffuseColor, lightPosition);
+		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[index]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
+		m_List[index]->GetTexture(), diffuseColor, lightPosition);
 
 		// Render the model using the glow shader if applicable
-		if(m_FileNames[i] == cLeftGlove || m_FileNames[i] == cRightGlove){
-			result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempHeight);
-			result = m_HorizontalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempWidth);
-			result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, 5.0f);
+		if(m_FileNames[i] == cboxingRing){
+
+			//result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
+			//		      m_HorizontalBlurTexture->GetShaderResourceView(), screenSizeY);
+			result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
+				m_List[i]->GetTexture(), 5.0f);
 		}			
 
 		if (!result)
