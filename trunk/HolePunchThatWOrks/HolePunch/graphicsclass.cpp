@@ -19,6 +19,9 @@ GraphicsClass::GraphicsClass(const GraphicsClass& other)
 	m_Model = 0;
 	m_LightShader = 0;
 	m_Light = 0;
+	m_HorizontalBlurShader = 0;
+	m_VerticalBlurShader = 0;
+	m_GlowShader = 0;
 }
 
 GraphicsClass::~GraphicsClass()
@@ -72,9 +75,9 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		{
 			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/test.dds");
 		}
-		if(m_FileNames[i] == cpunchingBoxer)
+		else if(m_FileNames[i] == cpunchingBoxer)
 		{
-			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Punch_tex.dds");
+			result = m_Model->Initialize(m_D3D->GetDevice(), m_FileNames[i], L"../HolePunch/Data/b_Windup_tex.dds");
 		}
 		else if(m_FileNames[i] == cboxingRing)
 		{
@@ -114,13 +117,35 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	//intialize light variables
 	m_Light->SetAmbientColor(0.15f, 0.15f, 0.15f, .5f);
 	m_Light->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
-	m_Light->SetDirection(0.0f, -1.0f, 0.0f);
+	m_Light->SetDirection(0.0f, 0.0f, 1.0f);
 
+	// Create the glow shader object.
+	m_GlowShader = new GlowShaderClass;
+	if(!m_GlowShader)
+	{
+		return false;
+	}
+
+	// Initialize the glow shader object.
+	result = m_GlowShader->Initialize(m_D3D->GetDevice(), hwnd);
+	if(!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the glow shader object.", L"Error", MB_OK);
+		return false;
+	}
 	return true;
 }
 
 void GraphicsClass::Shutdown()
 {
+	// Release the glow shader object.
+	if(m_GlowShader)
+	{
+		m_GlowShader->Shutdown();
+		delete m_GlowShader;
+		m_GlowShader = 0;
+	}
+
 	// Release the light object.
 	if (m_Light)
 	{
@@ -220,6 +245,13 @@ bool GraphicsClass::Render(float rotation)
 		// Render the model using the light shader.
 		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
 			m_List[i]->GetTexture(), m_Light->GetDirection(), m_Light->GetAmbientColor() , m_Light->GetDiffuseColor());
+
+		// Render the model using the glow shader if applicable
+		if(m_FileNames[i] == cboxingRing){
+			result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
+				m_List[i]->GetTexture(), 5.0f);
+		}			
+
 		if (!result)
 		{
 			return false;
@@ -230,3 +262,4 @@ bool GraphicsClass::Render(float rotation)
 	m_D3D->EndScene();
 	return true;
 }
+

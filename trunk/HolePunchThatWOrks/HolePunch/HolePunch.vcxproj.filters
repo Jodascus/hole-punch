@@ -63,6 +63,15 @@
     <ClCompile Include="RandomNG.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="glowshaderclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="horizontalblurshaderclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="verticalblurshaderclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphicsclass.h">
@@ -110,6 +119,15 @@
     <ClInclude Include="RandomNG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="glowshaderclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="horizontalblurshaderclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="verticalblurshaderclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="color.ps">
@@ -128,6 +146,24 @@
       <Filter>Shader Files</Filter>
     </None>
     <None Include="light.ps">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="glow.ps">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="glow.vs">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="horizontalblur.ps">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="horizontalblur.vs">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="verticalblur.ps">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="verticalblur.vs">
       <Filter>Shader Files</Filter>
     </None>
   </ItemGroup>

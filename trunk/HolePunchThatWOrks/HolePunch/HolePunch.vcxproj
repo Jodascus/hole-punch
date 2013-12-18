@@ -77,7 +77,9 @@
     <ClCompile Include="colorshaderclass.cpp" />
     <ClCompile Include="d3dclass.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="glowshaderclass.cpp" />
     <ClCompile Include="graphicsclass.cpp" />
+    <ClCompile Include="horizontalblurshaderclass.cpp" />
     <ClCompile Include="inputclass.cpp" />
     <ClCompile Include="lightclass.cpp" />
     <ClCompile Include="lightshaderclass.cpp" />
@@ -87,6 +89,7 @@
     <ClCompile Include="RandomNG.cpp" />
     <ClCompile Include="systemclass.cpp" />
     <ClCompile Include="textureclass.cpp" />
+    <ClCompile Include="verticalblurshaderclass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boxer.h" />
@@ -94,7 +97,9 @@
     <ClInclude Include="colorshaderclass.h" />
     <ClInclude Include="d3dclass.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="glowshaderclass.h" />
     <ClInclude Include="graphicsclass.h" />
+    <ClInclude Include="horizontalblurshaderclass.h" />
     <ClInclude Include="inputclass.h" />
     <ClInclude Include="lightclass.h" />
     <ClInclude Include="lightshaderclass.h" />
@@ -104,6 +109,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="systemclass.h" />
     <ClInclude Include="textureclass.h" />
+    <ClInclude Include="verticalblurshaderclass.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="color.ps">
@@ -113,11 +119,17 @@
     <None Include="color.vs">
       <FileType>CppCode</FileType>
     </None>
+    <None Include="glow.ps" />
+    <None Include="glow.vs" />
+    <None Include="horizontalblur.ps" />
+    <None Include="horizontalblur.vs" />
     <None Include="light.ps" />
     <None Include="light.vs" />
     <None Include="texture.ps">
       <FileType>Document</FileType>
     </None>
+    <None Include="verticalblur.ps" />
+    <None Include="verticalblur.vs" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HolePunch.rc" />

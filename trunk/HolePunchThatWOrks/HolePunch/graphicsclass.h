@@ -12,6 +12,9 @@
 #include "modelclass.h"
 #include "lightshaderclass.h"
 #include "lightclass.h"
+#include "horizontalblurshaderclass.h"
+#include "verticalblurshaderclass.h"
+#include "glowshaderclass.h"
 
 #include <vector>
 
@@ -46,6 +49,9 @@ private:
 	ModelClass* m_Model;
 	LightShaderClass* m_LightShader;
 	LightClass* m_Light;
+	HorizontalBlurShaderClass* m_HorizontalBlurShader;
+	VerticalBlurShaderClass* m_VerticalBlurShader;
+	GlowShaderClass* m_GlowShader;
 
 	vector<char*>m_FileNames;
 	vector<ModelClass*> m_List;

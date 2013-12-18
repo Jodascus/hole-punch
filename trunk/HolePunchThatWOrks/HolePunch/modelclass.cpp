@@ -161,7 +161,6 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	return true;
 }
 
-
 void ModelClass::ShutdownBuffers()
 {
 	// Release the index buffer.
@@ -180,7 +179,6 @@ void ModelClass::ShutdownBuffers()
 
 	return;
 }
-
 
 void ModelClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 {
@@ -203,7 +201,7 @@ void ModelClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 	return;
 }
 
-bool ModelClass::LoadTexture(ID3D11Device* device, WCHAR* filename)
+bool ModelClass::LoadTexture(ID3D11Device* device, WCHAR* texFilename)
 {
 	bool result;
 
@@ -215,25 +213,23 @@ bool ModelClass::LoadTexture(ID3D11Device* device, WCHAR* filename)
 	}
 
 	// Initialize the texture object.
-	result = m_Texture->Initialize(device, filename);
+	result = m_Texture->Initialize(device, texFilename);
 	if (!result)
 	{
 		return false;
 	}
-
 	return true;
 }
 
 void ModelClass::ReleaseTexture()
 {
-	// Release the texture object.
+	// Release the texture objects
 	if (m_Texture)
 	{
 		m_Texture->Shutdown();
 		delete m_Texture;
 		m_Texture = 0;
 	}
-
 	return;
 }
 
