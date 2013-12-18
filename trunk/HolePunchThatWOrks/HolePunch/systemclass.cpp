@@ -59,7 +59,7 @@ bool SystemClass::Initialize()
 	}
 	
 	player = new Player();
-	enemy = new Enemy();
+	enemy = new Enemy(player);
 
 	time(&prevTime);
 

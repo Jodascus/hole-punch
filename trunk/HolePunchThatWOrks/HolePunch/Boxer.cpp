@@ -3,6 +3,7 @@
 Boxer::Boxer()
 {
 	health = 10;
+	dodge = STANDING;
 }
 
 Boxer::Boxer(int h)
