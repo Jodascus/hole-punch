@@ -61,7 +61,7 @@ bool SystemClass::Initialize()
 	player = new Player();
 	enemy = new Enemy(player);
 	gamestate = START;
-
+	m_Graphics->gamestate = GraphicsClass::GAMESTATE::START;
 	time(&prevTime);
 
 	return true;
@@ -145,25 +145,32 @@ bool SystemClass::Frame()//To be used for update functions
 	if (m_Input->IsKeyDown('a'))
 	{
 		player->Dodge(LEFT);
+		m_Graphics->dodge = GraphicsClass::DODGE::LEFT;
 		//Poke the graphics class here
 	}
 	
 	if (m_Input->IsKeyDown('d'))
 	{
 		player->Dodge(RIGHT);
-		//Poke the graphics class here
+		m_Graphics->dodge = GraphicsClass::DODGE::RIGHT;
+		
 	}
 
 	if (!m_Input->IsKeyDown('a') && !m_Input->IsKeyDown('d'))
 	{
 		player->Dodge(STANDING);
-		//Poke the graphics class here
+		m_Graphics->dodge = GraphicsClass::DODGE::STANDING;
+		
 	}
 
 	if (m_Input->IsKeyDown(VK_SPACE))
 	{
-		player->Punch(enemy);
-		//Poke the graphics class here
+		if (player->Punch(enemy))
+		{
+			gamestate = WIN;
+			m_Graphics->gamestate = GraphicsClass::GAMESTATE::WIN;
+		}
+		
 	}
 
 	enemy->Update(15.0, dTime);//Enemy updates
@@ -180,32 +187,28 @@ bool SystemClass::Frame()//To be used for update functions
 		{
 		case START:
 			gamestate = FIGHT;
-			//poke graphics
+			m_Graphics->gamestate = GraphicsClass::GAMESTATE::FIGHT;
 			break;
 		case FIGHT:
 			break;
 		case WIN:
 			gamestate = FIGHT;
+			m_Graphics->gamestate = GraphicsClass::GAMESTATE::FIGHT;
 			enemy->Regenerate();
 			break;
 		case LOSE:
 			gamestate = START;
+			m_Graphics->gamestate = GraphicsClass::GAMESTATE::START;
 			break;
 		default:
 			break;
 		}
 	}
 
-	if (enemy->GetHealth() <= 0)
-	{
-		gamestate = WIN;
-		//Poke graphics
-	}
-
 	if (player->GetHealth() <= 0)
 	{
 		gamestate = LOSE;
-		//Poke graphics
+		m_Graphics->gamestate = GraphicsClass::GAMESTATE::LOSE;
 	}
 
 	// Do the frame processing for the graphics object.
