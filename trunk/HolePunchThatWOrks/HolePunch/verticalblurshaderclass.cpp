@@ -55,7 +55,6 @@ bool VerticalBlurShaderClass::Render(ID3D11DeviceContext* deviceContext, int ind
 {
 	bool result;
 
-
 	// Set the shader parameters that it will use for rendering.
 	result = SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, texture, screenHeight);
 	if(!result)
