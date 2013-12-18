@@ -172,6 +172,36 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Light4->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
 	m_Light4->SetPosition(3.0f, 1.0f, -3.0f);
 
+	// Create the horizontal blur shader object.
+	m_HorizontalBlurShader = new HorizontalBlurShaderClass;
+	if(!m_HorizontalBlurShader)
+	{
+		return false;
+	}
+
+	// Initialize the horizontal blur shader object.
+	result = m_HorizontalBlurShader->Initialize(m_D3D->GetDevice(), hwnd);
+	if(!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the horizontal blur shader object.", L"Error", MB_OK);
+		return false;
+	}
+
+	// Create the vertical blur shader object.
+	m_VerticalBlurShader = new VerticalBlurShaderClass;
+	if(!m_VerticalBlurShader)
+	{
+		return false;
+	}
+
+	// Initialize the vertical blur shader object.
+	result = m_VerticalBlurShader->Initialize(m_D3D->GetDevice(), hwnd);
+	if(!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the vertical blur shader object.", L"Error", MB_OK);
+		return false;
+	}
+
 	// Create the glow shader object.
 	m_GlowShader = new GlowShaderClass;
 	if(!m_GlowShader)
@@ -316,12 +346,12 @@ bool GraphicsClass::Render(float rotation)
 			D3DXMatrixTranslation(&viewMatrix, -5.0, -5.0, 20);
 		}
 
-		if(m_FileNames[i] == cRightGlove)
+		else if(m_FileNames[i] == cRightGlove)
 		{
 			D3DXMatrixTranslation(&viewMatrix, 1.0, -5.0, 20);
 		}
 
-		if(m_FileNames[i] == cidleBoxer)
+		else if(m_FileNames[i] == cidleBoxer)
 		{
 			D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
 		}
@@ -342,8 +372,8 @@ bool GraphicsClass::Render(float rotation)
 
 		// Render the model using the glow shader if applicable
 		if(m_FileNames[i] == cLeftGlove || m_FileNames[i] == cRightGlove){
-			//result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempHeight);
-			//result = m_HorizontalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempWidth);
+			result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempHeight);
+			result = m_HorizontalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempWidth);
 			result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, 5.0f);
 		}			
 
