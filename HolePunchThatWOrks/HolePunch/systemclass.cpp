@@ -142,21 +142,21 @@ bool SystemClass::Frame()//To be used for update functions
 	time_t cTime = time(NULL);//Current time
 	dTime = difftime(cTime, prevTime);//Get the amount of time that's passed between frames in seconds
 	
-	if (m_Input->IsKeyDown('a'))
+	if (m_Input->IsKeyDown('A'))
 	{
 		player->Dodge(LEFT);
 		m_Graphics->dodge = GraphicsClass::DODGE::LEFT;
 		//Poke the graphics class here
 	}
 	
-	if (m_Input->IsKeyDown('d'))
+	if (m_Input->IsKeyDown('D'))
 	{
 		player->Dodge(RIGHT);
 		m_Graphics->dodge = GraphicsClass::DODGE::RIGHT;
 		
 	}
 
-	if (!m_Input->IsKeyDown('a') && !m_Input->IsKeyDown('d'))
+	if (!m_Input->IsKeyDown('A') && !m_Input->IsKeyDown('D'))
 	{
 		player->Dodge(STANDING);
 		m_Graphics->dodge = GraphicsClass::DODGE::STANDING;
@@ -173,7 +173,9 @@ bool SystemClass::Frame()//To be used for update functions
 		
 	}
 
-	enemy->Update(15.0, dTime);//Enemy updates
+	if(gamestate == FIGHT){
+	enemy->Update(3.0, dTime);//Enemy updates
+	}
 	
 	// Check if the user pressed escape and wants to exit the application.
 	if(m_Input->IsKeyDown(VK_ESCAPE))
