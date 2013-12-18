@@ -40,6 +40,11 @@ public:
 	void Shutdown();
 	bool Frame();
 
+public:
+	enum GAMESTATE {START, FIGHT, WIN, LOSE, CREDITS};//Current state of the game
+	enum STANCE {IDLE, TELL, PUNCH};//used to determine which model needs to be displayed
+	enum DODGE { STANDING, LEFT, RIGHT };//Camera position for the player. gloves don't need to move with it
+
 private:
 	bool Render(float);
 
@@ -54,6 +59,7 @@ private:
 	GlowShaderClass* m_GlowShader;
 	vector<char*>m_FileNames;
 	vector<ModelClass*> m_List;
+	int tempWidth, tempHeight; // Necessary to quickly give to blur shaders
 };
 
 #endif
