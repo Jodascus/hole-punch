@@ -18,7 +18,10 @@ GraphicsClass::GraphicsClass(const GraphicsClass& other)
 	m_Camera = 0;
 	m_Model = 0;
 	m_LightShader = 0;
-	m_Light = 0;
+	m_Light1 = 0;
+	m_Light2 = 0;
+	m_Light3 = 0;
+	m_Light4 = 0;
 	m_HorizontalBlurShader = 0;
 	m_VerticalBlurShader = 0;
 	m_GlowShader = 0;
@@ -107,17 +110,49 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		return false;
 	}
 
-	// Create the light object.
-	m_Light = new LightClass;
-	if (!m_Light)
+	// Create the first light object.
+	m_Light1 = new LightClass;
+	if (!m_Light1)
 	{
 		return false;
 	}
 
-	//intialize light variables
-	m_Light->SetAmbientColor(0.15f, 0.15f, 0.15f, .5f);
-	m_Light->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
-	m_Light->SetDirection(0.0f, 0.0f, 1.0f);
+	// Initialize the first light object.
+	m_Light1->SetDiffuseColor(1.0f, 0.0f, 0.0f, 1.0f);
+	m_Light1->SetPosition(-3.0f, 1.0f, 3.0f);
+
+	// Create the second light object.
+	m_Light2 = new LightClass;
+	if (!m_Light2)
+	{
+		return false;
+	}
+
+	// Initialize the second light object.
+	m_Light2->SetDiffuseColor(0.0f, 1.0f, 0.0f, 1.0f);
+	m_Light2->SetPosition(3.0f, 1.0f, 3.0f);
+
+	// Create the third light object.
+	m_Light3 = new LightClass;
+	if (!m_Light3)
+	{
+		return false;
+	}
+
+	// Initialize the third light object.
+	m_Light3->SetDiffuseColor(0.0f, 0.0f, 1.0f, 1.0f);
+	m_Light3->SetPosition(-3.0f, 1.0f, -3.0f);
+
+	// Create the fourth light object.
+	m_Light4 = new LightClass;
+	if (!m_Light4)
+	{
+		return false;
+	}
+
+	// Initialize the fourth light object.
+	m_Light4->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
+	m_Light4->SetPosition(3.0f, 1.0f, -3.0f);
 
 	// Create the glow shader object.
 	m_GlowShader = new GlowShaderClass;
@@ -146,11 +181,29 @@ void GraphicsClass::Shutdown()
 		m_GlowShader = 0;
 	}
 
-	// Release the light object.
-	if (m_Light)
+	// Release the light objects.
+	if (m_Light1)
 	{
-		delete m_Light;
-		m_Light = 0;
+		delete m_Light1;
+		m_Light1 = 0;
+	}
+
+	if (m_Light2)
+	{
+		delete m_Light2;
+		m_Light2 = 0;
+	}
+
+	if (m_Light3)
+	{
+		delete m_Light3;
+		m_Light3 = 0;
+	}
+
+	if (m_Light4)
+	{
+		delete m_Light4;
+		m_Light4 = 0;
 	}
 
 	// Release the light shader object.
@@ -210,7 +263,21 @@ bool GraphicsClass::Frame()
 bool GraphicsClass::Render(float rotation)
 {
 	D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix;
+	D3DXVECTOR4 diffuseColor[4];
+	D3DXVECTOR4 lightPosition[4];
 	bool result;
+
+	// Create the diffuse color array from the four light colors.
+	diffuseColor[0] = m_Light1->GetDiffuseColor();
+	diffuseColor[1] = m_Light2->GetDiffuseColor();
+	diffuseColor[2] = m_Light3->GetDiffuseColor();
+	diffuseColor[3] = m_Light4->GetDiffuseColor();
+
+	// Create the light position array from the four light positions.
+	lightPosition[0] = m_Light1->GetPosition();
+	lightPosition[1] = m_Light2->GetPosition();
+	lightPosition[2] = m_Light3->GetPosition();
+	lightPosition[3] = m_Light4->GetPosition();
 
 	// Clear the buffers to begin the scene.
 	m_D3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
@@ -244,7 +311,7 @@ bool GraphicsClass::Render(float rotation)
 
 		// Render the model using the light shader.
 		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-			m_List[i]->GetTexture(), m_Light->GetDirection(), m_Light->GetAmbientColor() , m_Light->GetDiffuseColor());
+			m_List[i]->GetTexture(), diffuseColor, lightPosition);
 
 		// Render the model using the glow shader if applicable
 		if(m_FileNames[i] == cboxingRing){

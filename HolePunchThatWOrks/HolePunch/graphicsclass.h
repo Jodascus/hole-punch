@@ -48,11 +48,10 @@ private:
 	CameraClass* m_Camera;
 	ModelClass* m_Model;
 	LightShaderClass* m_LightShader;
-	LightClass* m_Light;
+	LightClass *m_Light1, *m_Light2, *m_Light3, *m_Light4;
 	HorizontalBlurShaderClass* m_HorizontalBlurShader;
 	VerticalBlurShaderClass* m_VerticalBlurShader;
 	GlowShaderClass* m_GlowShader;
-
 	vector<char*>m_FileNames;
 	vector<ModelClass*> m_List;
 };
