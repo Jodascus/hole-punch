@@ -19,6 +19,8 @@
 ///////////////////////
 #include "inputclass.h"
 #include "graphicsclass.h"
+#include "Player.h"
+#include "Enemy.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 // Class name: SystemClass
@@ -26,6 +28,9 @@
 class SystemClass
 {
 public:
+	enum GAMESTATE {START, FIGHT, WIN, LOSE, CREDITS};//Current state of the game
+
+
 	SystemClass();
 	SystemClass(const SystemClass&);
 	~SystemClass();
@@ -40,7 +45,10 @@ private:
 	bool Frame();
 	void InitializeWindows(int&, int&);
 	void ShutdownWindows();
-
+	Player* player;//User class
+	Enemy* enemy;//Opponent
+	time_t prevTime;//Used for timers
+	float dTime;//Delta time
 private:
 	LPCWSTR m_applicationName;
 	HINSTANCE m_hinstance;

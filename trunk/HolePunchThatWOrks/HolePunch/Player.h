@@ -9,5 +9,5 @@ public:
 	Player(int h);
 	void TakeDamage(int);
 	bool Punch(Boxer*) override;
-	
+
 };
