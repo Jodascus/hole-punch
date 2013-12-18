@@ -9,6 +9,7 @@ Enemy::Enemy() : Boxer()
 {
 	rng = new RandomNG();
 	rng->Init();
+	
 	punchFrequency = rng->RandomInt(1,10);
 	fakeoutChance = rng->RandomInt(1, 10);
 	tellTime = rng->RandomInt(1, 10);
@@ -58,24 +59,28 @@ void Enemy::DetermineMood()
 	}
 }
 
-void Enemy::Update(float t)
+void Enemy::Update(float t, float dt)
 {
-	//First adjust dodge position to match the player's
-	switch (player->GetDodge())
+	if (stance != TELL)
 	{
-	case STANDING:
-		dodge = STANDING;
-		break;
-	case LEFT:
-		dodge = LEFT;
-		break;
-	case RIGHT:
-		dodge = RIGHT;
-		break;
-	default:
-		break;
+		//First adjust dodge position to match the player's if not currently about to punch
+		switch (player->GetDodge())
+		{
+		case STANDING:
+			dodge = STANDING;
+			break;
+		case LEFT:
+			dodge = LEFT;
+			break;
+		case RIGHT:
+			dodge = RIGHT;
+			break;
+		default:
+			break;
+		}
 	}
 
+	timePassed = difftime(time(NULL), prevPunchT);//Update time since last punch
 	switch (mood)//Determine punching information
 	{
 	case NEUTRAL://Normal punch rate and a higher chance of fakeouts. tells are normal
@@ -83,12 +88,12 @@ void Enemy::Update(float t)
 		{
 			if (fakedOut)
 			{
-				DeterminePunch(fakeoutChance*2, tellTime*.75);
+				DeterminePunch(fakeoutChance*2, tellTime*.75, dt);
 				fakedOut = false;
 			}
 			else
 			{
-				DeterminePunch(fakeoutChance*2, tellTime);
+				DeterminePunch(fakeoutChance * 2, tellTime, dt);
 			}
 		}
 		break;
@@ -97,26 +102,26 @@ void Enemy::Update(float t)
 		{
 			if (fakedOut)
 			{
-				DeterminePunch(fakeoutChance*.5, tellTime*.50);
+				DeterminePunch(fakeoutChance*.5, tellTime*.50, dt);
 				fakedOut = false;
 			}
 			else
 			{
-				DeterminePunch(fakeoutChance*.5, tellTime*.75);
+				DeterminePunch(fakeoutChance*.5, tellTime*.75, dt);
 			}
 		}
 		break;
 	case COCKY://Lower punch rate with a normal chance of fakeouts. tells last a bit longer
-		if (timePassed >= punchFrequency*t * 2)
+		if (timePassed >= punchFrequency*t* 2)
 		{
 			if (fakedOut)
 			{
-				DeterminePunch(fakeoutChance, tellTime);
+				DeterminePunch(fakeoutChance, tellTime, dt);
 				fakedOut = false;
 			}
 			else
 			{
-				DeterminePunch(fakeoutChance, tellTime*1.25);
+				DeterminePunch(fakeoutChance, tellTime*1.25, dt);
 			}
 		}
 		break;
@@ -125,32 +130,33 @@ void Enemy::Update(float t)
 	}
 }
 
-void Enemy::DeterminePunch(float fc, float tt)
+void Enemy::DeterminePunch(float fc, float tt, float dt)
 {
-	float random = 0.0f;//Random number between 0 and 1
+	float random = rng->RandomFloat(0,1);//Random number between 0 and 1
 	if (random > fc)
 	{
 		fakedOut = true;
 		stance = TELL;
-		Tell(tt, true);
+		Tell(tt, true, dt);
 	}
 	else
 	{
 		stance = TELL;
-		Tell(tt, false);
+		Tell(tt, false, dt);
 	}
 }
 
-void Enemy::Tell(float tt, bool willPunch)//Waits through a countdown and finishes with a punch if willpunch is true
+void Enemy::Tell(float tt, bool willPunch, float dt)//Waits through a countdown and finishes with a punch if willpunch is true
 {
-	int countdown = 1000;
-	while (countdown < 1000 * tt)
+	
+	if (dt > 2 * tt)
 	{
+		if (willPunch)
+		{
+			stance = PUNCH;
+			prevPunchT = time(NULL);
+			Punch(player);
+		}
+		stance = IDLE;
 	}
-	if (willPunch)
-	{
-		stance = PUNCH;
-		Punch(player);
-	}
-	stance = IDLE;
 }

@@ -58,6 +58,11 @@ bool SystemClass::Initialize()
 		return false;
 	}
 	
+	player = new Player();
+	enemy = new Enemy();
+
+	time(&prevTime);
+
 	return true;
 }
 
@@ -127,11 +132,30 @@ void SystemClass::Run()
 }
 
 
-bool SystemClass::Frame()
+bool SystemClass::Frame()//To be used for update functions
 {
 	bool result;
+	time_t cTime = time(NULL);//Current time
+	dTime = difftime(cTime, prevTime);//Get the amount of time that's passed between frames in seconds
+	
+	if (m_Input->IsKeyDown('a'))
+	{
+		player->Dodge(LEFT);
+	}
+	
+	if (m_Input->IsKeyDown('d'))
+	{
+		player->Dodge(RIGHT);
+	}
 
+	if (!m_Input->IsKeyDown('a') && !m_Input->IsKeyDown('d'))
+	{
+		player->Dodge(STANDING);
+	}
 
+	
+	enemy->Update(2.0, dTime);//Enemy updates
+	
 	// Check if the user pressed escape and wants to exit the application.
 	if(m_Input->IsKeyDown(VK_ESCAPE))
 	{
@@ -145,6 +169,7 @@ bool SystemClass::Frame()
 		return false;
 	}
 
+	prevTime = cTime;//Set the time for next frame
 	return true;
 }
 
