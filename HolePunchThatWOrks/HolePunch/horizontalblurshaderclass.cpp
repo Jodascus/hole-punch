@@ -31,7 +31,7 @@ bool HorizontalBlurShaderClass::Initialize(ID3D11Device* device, HWND hwnd)
 
 
 	// Initialize the vertex and pixel shaders.
-	result = InitializeShader(device, hwnd, L"../Engine/horizontalblur.vs", L"../Engine/horizontalblur.ps");
+	result = InitializeShader(device, hwnd, L"../HolePunch/horizontalblur.vs", L"../HolePunch/horizontalblur.ps");
 	if(!result)
 	{
 		return false;

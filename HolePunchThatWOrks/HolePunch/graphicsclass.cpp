@@ -248,6 +248,9 @@ bool GraphicsClass::Render(float rotation)
 
 		// Render the model using the glow shader if applicable
 		if(m_FileNames[i] == cboxingRing){
+
+			//result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
+			//		      m_HorizontalBlurTexture->GetShaderResourceView(), screenSizeY);
 			result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
 				m_List[i]->GetTexture(), 5.0f);
 		}			
