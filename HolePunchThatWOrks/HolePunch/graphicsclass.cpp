@@ -46,6 +46,9 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		return false;
 	}
 
+	//Grabbing width and height to give to glow rendering
+	tempWidth = screenWidth, tempHeight = screenHeight;
+
 	// Initialize the Direct3D object.
 	result = m_D3D->Initialize(screenWidth, screenHeight, VSYNC_ENABLED, hwnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
 	if (!result)
@@ -154,6 +157,36 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Light4->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
 	m_Light4->SetPosition(3.0f, 1.0f, -3.0f);
 
+	// Create the horizontal blur shader object.
+	m_HorizontalBlurShader = new HorizontalBlurShaderClass;
+	if(!m_HorizontalBlurShader)
+	{
+		return false;
+	}
+
+	// Initialize the horizontal blur shader object.
+	result = m_HorizontalBlurShader->Initialize(m_D3D->GetDevice(), hwnd);
+	if(!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the horizontal blur shader object.", L"Error", MB_OK);
+		return false;
+	}
+
+	// Create the vertical blur shader object.
+	m_VerticalBlurShader = new VerticalBlurShaderClass;
+	if(!m_VerticalBlurShader)
+	{
+		return false;
+	}
+
+	// Initialize the vertical blur shader object.
+	result = m_VerticalBlurShader->Initialize(m_D3D->GetDevice(), hwnd);
+	if(!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the vertical blur shader object.", L"Error", MB_OK);
+		return false;
+	}
+
 	// Create the glow shader object.
 	m_GlowShader = new GlowShaderClass;
 	if(!m_GlowShader)
@@ -179,6 +212,22 @@ void GraphicsClass::Shutdown()
 		m_GlowShader->Shutdown();
 		delete m_GlowShader;
 		m_GlowShader = 0;
+	}
+
+	// Release the vertical blur shader object.
+	if(m_VerticalBlurShader)
+	{
+		m_VerticalBlurShader->Shutdown();
+		delete m_VerticalBlurShader;
+		m_VerticalBlurShader = 0;
+	}
+
+	// Release the horizontal blur shader object.
+	if(m_HorizontalBlurShader)
+	{
+		m_HorizontalBlurShader->Shutdown();
+		delete m_HorizontalBlurShader;
+		m_HorizontalBlurShader = 0;
 	}
 
 	// Release the light objects.
@@ -309,6 +358,8 @@ bool GraphicsClass::Render(float rotation)
 		// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 		m_List[i]->Render(m_D3D->GetDeviceContext());
 
+		ID3D11ShaderResourceView* tex = m_List[i]->GetTexture();
+
 		// Render the model using the light shader.
 		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
 			m_List[i]->GetTexture(), diffuseColor, lightPosition);
@@ -316,8 +367,13 @@ bool GraphicsClass::Render(float rotation)
 		// Render the model using the glow shader if applicable
 		if(m_FileNames[i] == cboxingRing){
 
-			//result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
-			//		      m_HorizontalBlurTexture->GetShaderResourceView(), screenSizeY);
+
+			result = m_HorizontalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
+					      m_List[i]->GetTexture(), tempHeight);
+
+			result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
+					      m_List[i]->GetTexture(), tempWidth);
+
 			result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
 				m_List[i]->GetTexture(), 5.0f);
 		}			
