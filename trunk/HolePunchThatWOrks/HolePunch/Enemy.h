@@ -12,9 +12,11 @@ public:
 
 	enum MOOD {ANGRY, COCKY, NEUTRAL};//used to simulate a fighter getting mad or dropping their guard
 	enum STANCE {IDLE, TELL, PUNCH};//used to determine which model needs to be displayed
+
+	STANCE stance;
 private:
 	MOOD mood;//Enemy's current mood
-	STANCE stance;//Enemy's current stance
+	
 	float timePassed;//time elapsed since last punch was thrown
 	time_t prevPunchT;//time value for last punch
 	time_t tellStartT;//starting time for the tell

@@ -172,10 +172,24 @@ bool SystemClass::Frame()//To be used for update functions
 		}
 		
 	}
+	if (gamestate == FIGHT)
+	{
+		enemy->Update(3.0, dTime);//Enemy updates
 
-	if(gamestate == FIGHT){
-	enemy->Update(3.0, dTime);//Enemy updates
+		switch (enemy->stance)
+		{
+		case Enemy::STANCE::IDLE:
+			m_Graphics->stance = GraphicsClass::STANCE::IDLE;
+				break;
+		case Enemy::STANCE::PUNCH:
+			m_Graphics->stance = GraphicsClass::STANCE::PUNCH;
+			break;
+		case Enemy::STANCE::TELL:
+			m_Graphics->stance = GraphicsClass::STANCE::TELL;
+			break;
+		}
 	}
+	
 	
 	// Check if the user pressed escape and wants to exit the application.
 	if(m_Input->IsKeyDown(VK_ESCAPE))

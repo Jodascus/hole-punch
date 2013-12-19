@@ -3,6 +3,8 @@
 Player::Player() : Boxer()
 {
 	startTime = time(NULL);
+	timesWon = 0;
+	timePassed = 0;
 }
 
 Player::Player(int h) : Boxer(h)
