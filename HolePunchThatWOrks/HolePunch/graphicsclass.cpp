@@ -438,6 +438,7 @@ bool GraphicsClass::Render(float rotation)
 				// Render the model using the glow shader if applicable
 				if (m_FileNames[i] == cLeftGlove || m_FileNames[i] == cRightGlove)
 				{
+					m_D3D->TurnZBufferOff();
 					result = m_HorizontalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempWidth);
 					result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempHeight);
 					result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, 5.0f);
