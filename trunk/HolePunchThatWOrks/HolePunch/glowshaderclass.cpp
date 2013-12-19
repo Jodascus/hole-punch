@@ -379,7 +379,7 @@ bool GlowShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext, D3
 
 	// Set shader texture resources in the pixel shader.
 	deviceContext->PSSetShaderResources(0, 1, &colorTexture);
-	//deviceContext->PSSetShaderResources(1, 1, &glowTexture);
+	deviceContext->PSSetShaderResources(1, 1, &colorTexture);
 
 	return true;
 }
