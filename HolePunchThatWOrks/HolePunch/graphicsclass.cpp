@@ -328,7 +328,7 @@ bool GraphicsClass::Frame()
 	static float rotation;
 
 	if (dodge == STANDING && !punch)
-	rotation = 0.0f;
+		rotation = 0.0f;
 		
 	if (rotation < 3)
 	{
@@ -364,6 +364,7 @@ bool GraphicsClass::Render(float rotation)
 			// Get the world, view, and projection matrices from the camera and d3d objects.
 			m_Camera->GetViewMatrix(viewMatrix);
 			m_D3D->GetWorldMatrix(worldMatrix);
+
 			m_D3D->GetProjectionMatrix(projectionMatrix);
 
 			switch (stance)
@@ -407,13 +408,16 @@ bool GraphicsClass::Render(float rotation)
 				//translate positions based on object drawn
 				if (m_FileNames[i] == cLeftGlove)
 				{
-					D3DXMatrixTranslation(&viewMatrix, -5.0, -5.0, 20);
+					if(dodge == GraphicsClass::DODGE::LEFT && punch)
+						D3DXMatrixTranslation(&viewMatrix, -5.0, -5.0, 24);
+					else
+						D3DXMatrixTranslation(&viewMatrix, -5.0, -5.0, 20);
 					index = 4;
 				}
 
 				else if (m_FileNames[i] == cRightGlove)
 				{
-					if(punch)
+					if((dodge == GraphicsClass::DODGE::RIGHT && punch) || (dodge == GraphicsClass::DODGE::STANDING && punch))
 						D3DXMatrixTranslation(&viewMatrix, -2.0, -5.0, 24);
 					else
 						D3DXMatrixTranslation(&viewMatrix, 1.0, -5.0, 20);

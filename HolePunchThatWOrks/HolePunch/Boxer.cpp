@@ -15,17 +15,17 @@ void Boxer::Dodge(DODGE d)
 {
 	switch (d)
 	{
-	case STANDING:
-		dodge = STANDING;
-		break;
-	case LEFT:
-		dodge = LEFT;
-		break;
-	case RIGHT:
-		dodge = RIGHT;
-		break;
-	default:
-		break;
+		case STANDING:
+			dodge = STANDING;
+			break;
+		case LEFT:
+			dodge = LEFT;
+			break;
+		case RIGHT:
+			dodge = RIGHT;
+			break;
+		default:
+			break;
 	}
 }
 

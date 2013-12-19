@@ -2,7 +2,6 @@
 
 Enemy::~Enemy()
 {
-	delete player;
 }
 
 Enemy::Enemy(Boxer* e) : Boxer()
