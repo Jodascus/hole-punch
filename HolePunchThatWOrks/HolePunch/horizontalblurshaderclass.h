@@ -4,7 +4,6 @@
 #ifndef _HORIZONTALBLURSHADERCLASS_H_
 #define _HORIZONTALBLURSHADERCLASS_H_
 
-
 //////////////
 // INCLUDES //
 //////////////
@@ -13,7 +12,6 @@
 #include <d3dx11async.h>
 #include <fstream>
 using namespace std;
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // Class name: HorizontalBlurShaderClass

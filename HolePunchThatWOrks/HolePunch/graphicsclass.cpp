@@ -178,6 +178,47 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Light4->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
 	m_Light4->SetPosition(3.0f, 1.0f, -3.0f);
 
+	// Create the diffuse color array from the four light colors.
+	diffuseColor[0] = m_Light1->GetDiffuseColor();
+	diffuseColor[1] = m_Light2->GetDiffuseColor();
+	diffuseColor[2] = m_Light3->GetDiffuseColor();
+	diffuseColor[3] = m_Light4->GetDiffuseColor();
+
+	// Create the light position array from the four light positions.
+	lightPosition[0] = m_Light1->GetPosition();
+	lightPosition[1] = m_Light2->GetPosition();
+	lightPosition[2] = m_Light3->GetPosition();
+	lightPosition[3] = m_Light4->GetPosition();
+
+	// Create the horizontal blur shader object.
+	m_HorizontalBlurShader = new HorizontalBlurShaderClass;
+	if(!m_HorizontalBlurShader)
+	{
+		return false;
+	}
+
+	// Initialize the horizontal blur shader object.
+	result = m_HorizontalBlurShader->Initialize(m_D3D->GetDevice(), hwnd);
+	if(!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the horizontal blur shader object.", L"Error", MB_OK);
+		return false;
+	}
+
+	// Create the vertical blur shader object.
+	m_VerticalBlurShader = new VerticalBlurShaderClass;
+	if(!m_VerticalBlurShader)
+	{
+		return false;
+	}
+
+	// Initialize the vertical blur shader object.
+	result = m_VerticalBlurShader->Initialize(m_D3D->GetDevice(), hwnd);
+	if(!result)
+	{
+		MessageBox(hwnd, L"Could not initialize the vertical blur shader object.", L"Error", MB_OK);
+		return false;
+	}
 
 	// Create the glow shader object.
 	m_GlowShader = new GlowShaderClass;
@@ -198,6 +239,22 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 
 void GraphicsClass::Shutdown()
 {
+		// Release the vertical blur shader object.
+	if(m_VerticalBlurShader)
+	{
+		m_VerticalBlurShader->Shutdown();
+		delete m_VerticalBlurShader;
+		m_VerticalBlurShader = 0;
+	}
+
+	// Release the horizontal blur shader object.
+	if(m_HorizontalBlurShader)
+	{
+		m_HorizontalBlurShader->Shutdown();
+		delete m_HorizontalBlurShader;
+		m_HorizontalBlurShader = 0;
+	}
+
 	// Release the glow shader object.
 	if(m_GlowShader)
 	{
@@ -293,23 +350,10 @@ bool GraphicsClass::Render(float rotation)
 	{
 		case FIGHT:
 			D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix;
-			D3DXVECTOR4 diffuseColor[4];
-			D3DXVECTOR4 lightPosition[4];
+			
 			bool result;
 			int bIndex;
 			int index;
-
-			// Create the diffuse color array from the four light colors.
-			diffuseColor[0] = m_Light1->GetDiffuseColor();
-			diffuseColor[1] = m_Light2->GetDiffuseColor();
-			diffuseColor[2] = m_Light3->GetDiffuseColor();
-			diffuseColor[3] = m_Light4->GetDiffuseColor();
-
-			// Create the light position array from the four light positions.
-			lightPosition[0] = m_Light1->GetPosition();
-			lightPosition[1] = m_Light2->GetPosition();
-			lightPosition[2] = m_Light3->GetPosition();
-			lightPosition[3] = m_Light4->GetPosition();
 
 			// Clear the buffers to begin the scene.
 			m_D3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
@@ -384,19 +428,19 @@ bool GraphicsClass::Render(float rotation)
 
 				// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 				m_List[index]->Render(m_D3D->GetDeviceContext());
+
+				ID3D11ShaderResourceView* tex = m_List[index]->GetTexture();
 				
 				// Render the model using the glow shader if applicable
-				if (m_FileNames[i] == cLeftGlove || m_FileNames[i] == cRightGlove){
-
-					//result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
-					//		      m_HorizontalBlurTexture->GetShaderResourceView(), screenSizeY);
-					result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-						m_List[i]->GetTexture(), 5.0f);
+				if (m_FileNames[i] == cLeftGlove || m_FileNames[i] == cRightGlove)
+				{
+					result = m_HorizontalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempWidth);
+					result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, tempHeight);
+					result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, 5.0f);
 				}
 
 				// Render the model using the light shader.
-				result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[index]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-					m_List[index]->GetTexture(), diffuseColor, lightPosition);
+				result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[index]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, tex, diffuseColor, lightPosition);
 
 				if (!result)
 				{

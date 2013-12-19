@@ -65,6 +65,7 @@ private:
 	vector<char*>m_FileNames;
 	vector<ModelClass*> m_List;
 	int tempWidth, tempHeight; // Necessary to quickly give to blur shaders
+	D3DXVECTOR4 diffuseColor[4], lightPosition[4];
 };
 
 #endif
