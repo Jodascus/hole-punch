@@ -165,6 +165,7 @@ bool SystemClass::Frame()//To be used for update functions
 
 	if (m_Input->IsKeyDown(VK_SPACE))
 	{
+		m_Graphics->punch = true;
 		if (player->Punch(enemy))
 		{
 			gamestate = WIN;
@@ -172,6 +173,7 @@ bool SystemClass::Frame()//To be used for update functions
 		}
 		
 	}
+	else{m_Graphics->punch = false;}
 	if (gamestate == FIGHT)
 	{
 		enemy->Update(3.0, dTime);//Enemy updates
