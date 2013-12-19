@@ -48,6 +48,8 @@ public:
 	STANCE stance;
 	DODGE dodge;
 
+	bool punch;
+
 private:
 	bool Render(float);
 

@@ -49,6 +49,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	stance = IDLE;
 	dodge = STANDING;
 
+	punch = false;
 	
 	// Create the Direct3D object.
 	m_D3D = new D3DClass;
@@ -269,7 +270,7 @@ bool GraphicsClass::Frame()
 
 	static float rotation;
 
-	if (dodge == STANDING)
+	if (dodge == STANDING && !punch)
 	rotation = 0.0f;
 		
 	if (rotation < 3)
@@ -295,8 +296,8 @@ bool GraphicsClass::Render(float rotation)
 			D3DXVECTOR4 diffuseColor[4];
 			D3DXVECTOR4 lightPosition[4];
 			bool result;
-			int bIndex = 0;
-			int index = 0;
+			int bIndex;
+			int index;
 
 			// Create the diffuse color array from the four light colors.
 			diffuseColor[0] = m_Light1->GetDiffuseColor();
@@ -356,10 +357,8 @@ bool GraphicsClass::Render(float rotation)
 			// Render the model using the light shader.
 			result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[bIndex]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, m_List[bIndex]->GetTexture(), diffuseColor, lightPosition);
 
-			//Store texture to reduce duplicate calls
-			ID3D11ShaderResourceView* tex = m_List[index]->GetTexture();
-
-			for (int i = 0; i < (int)m_List.size(); i++)
+			//the first three are boxers
+			for (int i = 3; i < (int)m_List.size(); i++)
 			{
 				//translate positions based on object drawn
 				if (m_FileNames[i] == cLeftGlove)
@@ -370,7 +369,10 @@ bool GraphicsClass::Render(float rotation)
 
 				else if (m_FileNames[i] == cRightGlove)
 				{
-					D3DXMatrixTranslation(&viewMatrix, 1.0, -5.0, 20);
+					if(punch)
+						D3DXMatrixTranslation(&viewMatrix, -2.0, -5.0, 24);
+					else
+						D3DXMatrixTranslation(&viewMatrix, 1.0, -5.0, 20);
 					index = 5;
 				}
 
@@ -382,11 +384,7 @@ bool GraphicsClass::Render(float rotation)
 
 				// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 				m_List[index]->Render(m_D3D->GetDeviceContext());
-
-				// Render the model using the light shader.
-				result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[index]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-					m_List[index]->GetTexture(), diffuseColor, lightPosition);
-
+				
 				// Render the model using the glow shader if applicable
 				if (m_FileNames[i] == cLeftGlove || m_FileNames[i] == cRightGlove){
 
@@ -395,6 +393,10 @@ bool GraphicsClass::Render(float rotation)
 					result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
 						m_List[i]->GetTexture(), 5.0f);
 				}
+
+				// Render the model using the light shader.
+				result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[index]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
+					m_List[index]->GetTexture(), diffuseColor, lightPosition);
 
 				if (!result)
 				{
