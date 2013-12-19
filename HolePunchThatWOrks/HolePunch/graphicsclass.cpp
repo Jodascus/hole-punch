@@ -177,6 +177,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	m_Light4->SetDiffuseColor(1.0f, 1.0f, 1.0f, 1.0f);
 	m_Light4->SetPosition(3.0f, 1.0f, -3.0f);
 
+
 	// Create the glow shader object.
 	m_GlowShader = new GlowShaderClass;
 	if(!m_GlowShader)
@@ -265,26 +266,16 @@ void GraphicsClass::Shutdown()
 bool GraphicsClass::Frame()
 {
 	bool result;
-	static float rotation = 0.0f;
 
-	// Update the rotation variable each frame.
-	switch(dodge)
+	static float rotation;
+
+	if (dodge == STANDING)
+	rotation = 0.0f;
+		
+	if (rotation < 3)
 	{
-		case STANDING:
-			break;
-		case LEFT:
-			rotation = 0;
-			break;
-		case RIGHT:
-			rotation = 0;
-			break;
+		rotation += (float)D3DX_PI * 0.1f;
 	}
-
-	if (rotation < 50)
-			{
-				rotation += (float)D3DX_PI * 0.1f;
-			}
-	
 
 	// Render the graphics scene.
 	result = Render(rotation);
@@ -297,119 +288,125 @@ bool GraphicsClass::Frame()
 
 bool GraphicsClass::Render(float rotation)
 {
-	D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix;
-	D3DXVECTOR4 diffuseColor[4];
-	D3DXVECTOR4 lightPosition[4];
-	bool result;
-	int bIndex = 0;
-	int index = 0;
-
-	// Create the diffuse color array from the four light colors.
-	diffuseColor[0] = m_Light1->GetDiffuseColor();
-	diffuseColor[1] = m_Light2->GetDiffuseColor();
-	diffuseColor[2] = m_Light3->GetDiffuseColor();
-	diffuseColor[3] = m_Light4->GetDiffuseColor();
-
-	// Create the light position array from the four light positions.
-	lightPosition[0] = m_Light1->GetPosition();
-	lightPosition[1] = m_Light2->GetPosition();
-	lightPosition[2] = m_Light3->GetPosition();
-	lightPosition[3] = m_Light4->GetPosition();
-
-	// Clear the buffers to begin the scene.
-	m_D3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
-
-	// Generate the view matrix based on the camera's position.
-	m_Camera->Render();
-
-	// Get the world, view, and projection matrices from the camera and d3d objects.
-	m_Camera->GetViewMatrix(viewMatrix);
-	m_D3D->GetWorldMatrix(worldMatrix);
-	m_D3D->GetProjectionMatrix(projectionMatrix);
-
-	switch(stance)
+	switch (gamestate)
 	{
-		case IDLE:
-			D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
-			bIndex = 0;
-			break;
-		case TELL:
-			D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
-			bIndex = 1;
-			break;
-		case PUNCH:
-			D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
-			bIndex = 2;
-			break;
-	}
+		case FIGHT:
+			D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix;
+			D3DXVECTOR4 diffuseColor[4];
+			D3DXVECTOR4 lightPosition[4];
+			bool result;
+			int bIndex = 0;
+			int index = 0;
 
-	switch(dodge)
-	{
-		case STANDING:
-			D3DXMatrixTranslation(&worldMatrix, 0.0, 0.0, 0.0);
+			// Create the diffuse color array from the four light colors.
+			diffuseColor[0] = m_Light1->GetDiffuseColor();
+			diffuseColor[1] = m_Light2->GetDiffuseColor();
+			diffuseColor[2] = m_Light3->GetDiffuseColor();
+			diffuseColor[3] = m_Light4->GetDiffuseColor();
+
+			// Create the light position array from the four light positions.
+			lightPosition[0] = m_Light1->GetPosition();
+			lightPosition[1] = m_Light2->GetPosition();
+			lightPosition[2] = m_Light3->GetPosition();
+			lightPosition[3] = m_Light4->GetPosition();
+
+			// Clear the buffers to begin the scene.
+			m_D3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
+
+			// Generate the view matrix based on the camera's position.
+			m_Camera->Render();
+
+			// Get the world, view, and projection matrices from the camera and d3d objects.
+			m_Camera->GetViewMatrix(viewMatrix);
+			m_D3D->GetWorldMatrix(worldMatrix);
+			m_D3D->GetProjectionMatrix(projectionMatrix);
+
+			switch (stance)
+			{
+				case IDLE:
+					D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
+					bIndex = 0;
+					break;
+				case TELL:
+					D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
+					bIndex = 1;
+					break;
+				case PUNCH:
+					D3DXMatrixTranslation(&viewMatrix, 0.0, 0.0, 25);
+					bIndex = 2;
+					break;
+			}
+
+			switch (dodge)
+			{
+				case STANDING:
+					D3DXMatrixTranslation(&worldMatrix, 0.0, 0.0, 0.0);
+					break;
+				case LEFT:
+					D3DXMatrixTranslation(&worldMatrix, rotation, 0.0, -rotation);
+					break;
+				case RIGHT:
+					D3DXMatrixTranslation(&worldMatrix, -rotation, 0.0, -rotation);
+					break;
+			}
+
+			// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
+			m_List[bIndex]->Render(m_D3D->GetDeviceContext());
+
+			// Render the model using the light shader.
+			result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[bIndex]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, m_List[bIndex]->GetTexture(), diffuseColor, lightPosition);
+
+			//Store texture to reduce duplicate calls
+			ID3D11ShaderResourceView* tex = m_List[index]->GetTexture();
+
+			for (int i = 0; i < (int)m_List.size(); i++)
+			{
+				//translate positions based on object drawn
+				if (m_FileNames[i] == cLeftGlove)
+				{
+					D3DXMatrixTranslation(&viewMatrix, -5.0, -5.0, 20);
+					index = 4;
+				}
+
+				else if (m_FileNames[i] == cRightGlove)
+				{
+					D3DXMatrixTranslation(&viewMatrix, 1.0, -5.0, 20);
+					index = 5;
+				}
+
+				else if (m_FileNames[i] == cboxingRing)
+				{
+					D3DXMatrixTranslation(&viewMatrix, 0.0, -8, 25);
+					index = 3;
+				}
+
+				// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
+				m_List[index]->Render(m_D3D->GetDeviceContext());
+
+				// Render the model using the light shader.
+				result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[index]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
+					m_List[index]->GetTexture(), diffuseColor, lightPosition);
+
+				// Render the model using the glow shader if applicable
+				if (m_FileNames[i] == cLeftGlove || m_FileNames[i] == cRightGlove){
+
+					//result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
+					//		      m_HorizontalBlurTexture->GetShaderResourceView(), screenSizeY);
+					result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
+						m_List[i]->GetTexture(), 5.0f);
+				}
+
+				if (!result)
+				{
+					return false;
+				}
+			}
+
+			// Present the rendered scene to the screen.
+			m_D3D->EndScene();
 			break;
-		case LEFT:
-			D3DXMatrixTranslation(&worldMatrix, rotation, 0.0, -rotation);
-			break;
-		case RIGHT:
-			D3DXMatrixTranslation(&worldMatrix, -rotation, 0.0, -rotation);
-			break;
-	}
-
-	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
-
-	m_List[bIndex]->Render(m_D3D->GetDeviceContext());
-
-	// Render the model using the light shader.
-	result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[bIndex]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-		m_List[bIndex]->GetTexture(), diffuseColor, lightPosition);
-
-
-	for (int i = 0; i < (int)m_List.size(); i++)
-	{
-		//translate positions based on object drawn
-		if(m_FileNames[i] == cLeftGlove)
-		{
-			D3DXMatrixTranslation(&viewMatrix, -5.0, -5.0, 20);
-			index = 4;
 		}
-		if(m_FileNames[i] == cRightGlove)
-		{
-			D3DXMatrixTranslation(&viewMatrix, 1.0, -5.0, 20);
-			index = 5;
-		}
-		
-		else if(m_FileNames[i] == cboxingRing)
-		{
-			D3DXMatrixTranslation(&viewMatrix, 0.0, -8, 25);
-			index = 3;
-		}
-
-		
-		// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
-		m_List[index]->Render(m_D3D->GetDeviceContext());
-
-		// Render the model using the light shader.
-		result = m_LightShader->Render(m_D3D->GetDeviceContext(), m_List[index]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix,
-		m_List[index]->GetTexture(), diffuseColor, lightPosition);
-
-		// Render the model using the glow shader if applicable
-		if(m_FileNames[i] == cboxingRing){
-
-			//result = m_VerticalBlurShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
-			//		      m_HorizontalBlurTexture->GetShaderResourceView(), screenSizeY);
-			result = m_GlowShader->Render(m_D3D->GetDeviceContext(), m_List[i]->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 
-				m_List[i]->GetTexture(), 5.0f);
-		}			
-
-		if (!result)
-		{
-			return false;
-		}
-	}
-
-	// Present the rendered scene to the screen.
-	m_D3D->EndScene();
-	return true;
+		return true;
+	
 }
 

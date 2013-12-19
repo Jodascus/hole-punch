@@ -10,13 +10,14 @@ Enemy::Enemy(Boxer* e) : Boxer()
 	rng = new RandomNG();
 	rng->Init();
 	player = e;
-	punchFrequency = rng->RandomInt(1,10);
+	punchFrequency = rng->RandomInt(1,2);
 	fakeoutChance = rng->RandomInt(1, 10);
-	tellTime = rng->RandomInt(1, 10);
+	tellTime = rng->RandomInt(5, 10);
 	temper = rng->RandomInt(1, 10);
 	prevPunchT = time(NULL);
 	willPunch = false;
-	
+	mood = NEUTRAL;
+	stance = IDLE;
 }
 
 Enemy::Enemy(int h, int punchF, float fakeoutC, float tellT, int t, Boxer* e) : Boxer(h)
@@ -34,7 +35,7 @@ bool Enemy::Punch(Boxer* p)
 
 	if (dodge == p->GetDodge())
 	{
-		p->TakeDamage(1);
+		p->TakeDamage(2);
 		hit = true;
 		numLanded++;
 	}
@@ -42,7 +43,6 @@ bool Enemy::Punch(Boxer* p)
 	{
 		numMissed++;
 	}
-	stance = IDLE;
 	return hit;
 }
 
@@ -64,11 +64,10 @@ void Enemy::DetermineMood()
 
 void Enemy::Update(float t, float dt)
 {
-	if (difftime(time(NULL), prevPunchT) > 1)
-		stance = IDLE;
-
 	if (stance != TELL)
 	{
+		if (difftime(time(NULL), prevPunchT) > 1)
+			stance = IDLE;
 		//First adjust dodge position to match the player's if not currently about to punch
 		switch (player->GetDodge())
 		{
@@ -85,60 +84,62 @@ void Enemy::Update(float t, float dt)
 			break;
 		}
 
-
 		timePassed = difftime(time(NULL), prevPunchT);//Update time since last punch
 		switch (mood)//Determine punching information
 		{
-		case NEUTRAL://Normal punch rate and a higher chance of fakeouts. tells are normal
-			if (timePassed >= punchFrequency*t)
-			{
-				if (fakedOut)
+			case NEUTRAL://Normal punch rate and a higher chance of fakeouts. tells are normal
+				if (timePassed >= punchFrequency*t)
 				{
-					DeterminePunch(fakeoutChance * 2);
-					fTellTime = tellTime*.75;
-					fakedOut = false;
+					if (fakedOut)
+					{
+						DeterminePunch(fakeoutChance * 2);
+						fTellTime = tellTime*.75;
+						fakedOut = false;
+					}
+					else
+					{
+						DeterminePunch(fakeoutChance * 2);
+						fTellTime = tellTime;
+					}
 				}
-				else
-				{
-					DeterminePunch(fakeoutChance * 2);
-					fTellTime = tellTime;
-				}
-			}
 			break;
-		case ANGRY://Higher punch rate with a lower chance of fakeouts. tells are a bit shorter 
-			if (timePassed >= punchFrequency*t*.5)
-			{
-				if (fakedOut)
+
+			case ANGRY://Higher punch rate with a lower chance of fakeouts. tells are a bit shorter 
+				if (timePassed >= punchFrequency*t*.5)
 				{
-					DeterminePunch(fakeoutChance*.5);
-					fTellTime = tellTime*.50;
-					fakedOut = false;
+					if (fakedOut)
+					{
+						DeterminePunch(fakeoutChance*.5);
+						fTellTime = tellTime*.50;
+						fakedOut = false;
+					}
+					else
+					{
+						DeterminePunch(fakeoutChance*.5);
+						fTellTime = tellTime*.75;
+					}
 				}
-				else
+				break;
+
+			case COCKY://Lower punch rate with a normal chance of fakeouts. tells last a bit longer
+				if (timePassed >= punchFrequency*t * 2)
 				{
-					DeterminePunch(fakeoutChance*.5);
-					fTellTime = tellTime*.75;
+					if (fakedOut)
+					{
+						DeterminePunch(fakeoutChance);
+						fTellTime = tellTime*2;
+						fakedOut = false;
+					}
+					else
+					{
+						DeterminePunch(fakeoutChance);
+						fTellTime = tellTime*1.25;
+					}
 				}
-			}
-			break;
-		case COCKY://Lower punch rate with a normal chance of fakeouts. tells last a bit longer
-			if (timePassed >= punchFrequency*t * 2)
-			{
-				if (fakedOut)
-				{
-					DeterminePunch(fakeoutChance);
-					fTellTime = tellTime*2;
-					fakedOut = false;
-				}
-				else
-				{
-					DeterminePunch(fakeoutChance);
-					fTellTime = tellTime*1.25;
-				}
-			}
-			break;
-		default:
-			break;
+				break;
+
+			default:
+				break;
 		}
 	}
 	else if (stance == TELL)
